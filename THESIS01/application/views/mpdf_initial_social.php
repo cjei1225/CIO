@@ -1,37 +1,57 @@
-<?php foreach($social as $row_info) 
-      {
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $age            = $row_info->age;
-          $birthplace     = $row_info->birthplace;
-          $birthday       = $row_info->birthday;
-          $nationality    = $row_info->nationality;
-          $gender         = $row_info->gender;
-          $case           = $row_info->client_sector;
-          $created        = date('F-d-Y', strtotime($row_info->created));
-          $intake_description = $row_info->intake_desc;
-          $exceptionality = $row_info->exceptionality;
-          $facts_abandon  = $row_info->facts_abandonment;
-          $fam_details    = $row_info->fam_details;
-          $circumstances  = $row_info->circumstances;
-          $present_envi   = $row_info->present_envi;
-          $eval_reco      = $row_info->eval_reco;
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      $date = date('F-d-Y');
-      $time = date('h:i:s A');
-
+<?php 
+$client_id = $social[0]->client_id;
+$fname          = $social[0]->client_fname;
+$mname          = $social[0]->client_mname;
+$lname          = $social[0]->client_lname;
+$age            = $social[0]->age;
+$birthplace     = $social[0]->birthplace;
+$birthday       = $social[0]->birthday;
+$nationality    = $social[0]->nationality;
+$gender         = $social[0]->gender;
+$case           = $social[0]->client_sector;
+$created        = date('F-d-Y', strtotime($social[0]->created));
+$intake_description = $social[0]->intake_desc;
+$exceptionality = $social[0]->exceptionality;
+$facts_abandon  = $social[0]->facts_abandonment;
+$fam_details    = $social[0]->fam_details;
+$circumstances  = $social[0]->circumstances;
+$present_envi   = $social[0]->present_envi;
+$eval_reco      = $social[0]->eval_reco;
+$first_name     = $social[0]->first_name;
+$last_name      = $social[0]->last_name;
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+     
+if($birthday != null)
+{
+  $age = ageCalculator($birthday);
+}
+else
+{
+  $age = ageCalculator($created);
+}
+function ageCalculator($birthday){
+  if(!empty($birthday)){
+    $birthdate = new DateTime($birthday);
+    $today   = new DateTime(date("Y/m/d"));
+    $age = $birthdate->diff($today)->y;
+    return $age;
+  }else{
+    return 0;
+  }
+}
+if($birthday != null){
+$age = ageCalculator($birthday);
+}
+else{
+$age = ageCalculator($birthday).' (admit date, no birthday)';
+}
 
 $html='  
 <main >
   <div class="container">
   <div style="text-align:center;">
   <img src="' .base_url().'materialize/title logo.png" width="100" height="100"><br>
-  CHILD CASE STUDY REPORT</div>
+  INITIAL SOCIAL CASE STUDY REPORT</div>
   <div class ="row">
       <div class="col s6">
       <h5 class="divider black"></h5>
@@ -57,10 +77,10 @@ $html='
         <label><b>III. BACKGROUND INFORMATION</b></label><br>
         <h5 class="divider black"></h5>
         <div style="margin-left:30px;">
-          <label><b>A.  THE CHILD</b></label><br>
-          <label>Description of the child  upon admission</label><br>
+          <label><b>A.  THE CLIENT</b></label><br>
+          <label>Description of the client  upon admission</label><br>
           <label><u>'.$intake_description.'</u></label><br>
-          <label>Description of the child’s Present environment</label><br>
+          <label>Description of the client’s present environment</label><br>
           <label><u>'.$present_envi.'</u></label><br>
           <label><b>B.  THE FAMILY</b></label><br>
           <label><u>'.$fam_details.'</u></label><br>

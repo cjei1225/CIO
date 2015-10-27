@@ -1,36 +1,36 @@
-<?php foreach($aff_under as $row_info) 
-      {
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $birthday       = $row_info->birthday;
-          $birthplace     = $row_info->birthplace;
-          $name1          = $row_info->name1;
-          $name2          = $row_info->name2;
-          $address1       = $row_info->address1;
-          $address2       = $row_info->address2;
-          $relationship1  = $row_info->relationship1;
-          $relationship2  = $row_info->relationship2;
-          $var4           = $row_info->var4;
-          $var5           = $row_info->var5;
-          $var6           = $row_info->var6;
-          $var7           = $row_info->var7;
-          $var8           = $row_info->var8;
-          $var9           = $row_info->var9;
-          $var10          = $row_info->var10;
-          $affiant1       = $row_info->affiant1;
-          $affiant2       = $row_info->affiant2;
-          $witness1       = $row_info->witness1;
-          $witness2       = $row_info->witness2;
-          $day            = $row_info->day;
-          $month          = $row_info->month;
-          $taxnum         = $row_info->taxnum;
-          $taxplace       = $row_info->taxplace;
-          $taxdate        = $row_info->taxdate;
-          $docNum         = $row_info->docNum;
-          $pageNum        = $row_info->pageNum;
-          $bookNum        = $row_info->bookNum;
-      }
+<?php 
+
+$fname          = $aff_under[0]->client_fname;
+$mname          = $aff_under[0]->client_mname;
+$lname          = $aff_under[0]->client_lname;
+$birthday       = $aff_under[0]->birthday;
+$birthplace     = $aff_under[0]->birthplace;
+$name1          = $aff_under[0]->name1;
+$name2          = $aff_under[0]->name2;
+$address1       = $aff_under[0]->address1;
+$address2       = $aff_under[0]->address2;
+$relationship1  = $aff_under[0]->relationship1;
+$relationship2  = $aff_under[0]->relationship2;
+$var4           = $aff_under[0]->var4;
+$var5           = $aff_under[0]->var5;
+$var6           = $aff_under[0]->var6;
+$var7           = $aff_under[0]->var7;
+$var8           = $aff_under[0]->var8;
+$var9           = $aff_under[0]->var9;
+$var10          = $aff_under[0]->var10;
+$affiant1       = $aff_under[0]->affiant1;
+$affiant2       = $aff_under[0]->affiant2;
+$witness1       = $aff_under[0]->witness1;
+$witness2       = $aff_under[0]->witness2;
+$day            = $aff_under[0]->day;
+$month          = $aff_under[0]->month;
+$taxnum         = $aff_under[0]->taxnum;
+$taxplace       = $aff_under[0]->taxplace;
+$taxdate        = $aff_under[0]->taxdate;
+$docNum         = $aff_under[0]->docNum;
+$pageNum        = $aff_under[0]->pageNum;
+$bookNum        = $aff_under[0]->bookNum;
+
 
 $html='  
 <main >
