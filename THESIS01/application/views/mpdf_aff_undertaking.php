@@ -29,7 +29,7 @@ $taxplace       = $aff_under[0]->taxplace;
 $taxdate        = $aff_under[0]->taxdate;
 $docNum         = $aff_under[0]->docNum;
 $pageNum        = $aff_under[0]->pageNum;
-$bookNum        = $aff_under[0]->bookNum;
+$bookNum        = $aff_under[0]->bookNum; 
 
 
 $html='  

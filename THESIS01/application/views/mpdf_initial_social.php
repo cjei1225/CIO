@@ -20,7 +20,7 @@ $eval_reco      = $social[0]->eval_reco;
 $first_name     = $social[0]->first_name;
 $last_name      = $social[0]->last_name;
 if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-     
+      
 if($birthday != null)
 {
   $age = ageCalculator($birthday);

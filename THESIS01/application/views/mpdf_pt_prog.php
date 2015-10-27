@@ -22,7 +22,7 @@ $reco           = $pt_prog[0]->reco;
 $created        = date('F-d-Y', strtotime($pt_prog[0]->created));
 
 $first_name     = $pt_prog[0]->first_name;
-$last_name      = $pt_prog[0]->last_name;
+$last_name      = $pt_prog[0]->last_name; 
 
 if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
 
