@@ -149,7 +149,7 @@ $bookNum = array(
   'value' => set_value('bookNum'),
 );
 
-include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
 ?>
 
 
@@ -158,11 +158,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application
       <div class="row">
         <?php if($status == 0)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admission.php');
+          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
         }
         elseif($status == 1)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_custody.php');
+          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
         }
 
         ?>
@@ -170,7 +170,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application
        
         <div class="col s10">
         	<fieldset class="z-depth-2">
-            <?php include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_info.php');
+            <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_info.php');
  ?>
             <?php echo form_open("auth/input_aff_undertaking"); ?>
           	<center><h5 class="bold">JOINT AFFIDAVIT OF UNDERTAKING</h5></center><?php echo form_hidden('client_id', $client_id); ?>

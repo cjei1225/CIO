@@ -22,17 +22,17 @@ $file_ploc = array(
 );
 
 $document_type = '20';
-include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
 ?>
  <main>
       <div class="container">
         <div class="row">
           <?php if($client_status == 1){
-             include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_custody.php');
+             include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
               }
               elseif($client_status == 0)
               {
-                include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admission.php');
+                include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
               }
 
           ?>
@@ -43,7 +43,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application
                     <h5 class="bold">Documents</h5>
                   </center>
                   <h5 class="divider black"></h5>
-                  <?php include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_info.php'); ?>
+                  <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_info.php'); ?>
                           
            
                                 <table class="table centered striped bordered hoverable">

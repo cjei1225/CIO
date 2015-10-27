@@ -9,7 +9,7 @@ $file_name = array(
     'id'    => 'file_name',
     'value' => set_value('file_name'),
 );
-include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
 ?>
         
 
@@ -19,11 +19,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application
   <?php
     if($status == 0)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admission.php');
+          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
         }
         elseif($status == 1)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_custody.php');
+          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
         }
 
         ?>
@@ -35,7 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application
                                   
                                 </center>
                                 <h5 class="divider black"></h5>
-                                <?php include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_info.php'); ?>
+                                <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_info.php'); ?>
                             <div class="row">
                                 <input type="hidden" id="client_id" value="<?=$client_id;?>">
                                 <input type="hidden" id="user_id" value="<?=$user_id;?>">

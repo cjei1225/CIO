@@ -43,7 +43,7 @@ foreach ($overall as $sector)
 <main>
     <div class="container">
         <div class="row">
-            <?php include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admin_reports.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admin_reports.php'); ?>
             <div class="col s10">
                 <div class="col s12">
                     <ul class="tabs" >
