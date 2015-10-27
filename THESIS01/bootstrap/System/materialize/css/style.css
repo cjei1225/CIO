@@ -1,0 +1,104 @@
+#logo
+	{
+	text-align:center;
+	height:120px;
+	width: 100%;
+	background-image:url('Hospicio de San Jose Logo.png');
+	background-size: 600px auto;
+
+
+	background-repeat:no-repeat;
+	}
+#loginsize
+	{
+		width: 45%;
+		margin-left: 30%;
+		margin-right: 35%;
+	}
+#sizebutton
+{
+	width: 30%;
+}
+#footertext
+{
+	margin-left: 10%;
+}
+#textheader
+{
+	font-size: 18px;
+	font-family: "Serif";
+}
+#textsize
+{
+	font-size: 10px;
+	height: 80px;
+	text-align: left;
+	
+font-family: "Serif";
+}
+#foottext
+{
+	//margin-left: 5%;
+	//position: absolute;
+	bottom: 0px;
+	
+
+}
+label
+{
+	color: black;
+}
+#navsize
+{
+	width: 170px;
+
+}
+.dropdown-content
+{
+height: 50%;
+}
+
+b
+{
+	font-size:18px;
+}
+#homeicon
+{
+	width: 50px;
+}
+.menu{
+	margin:0; 
+	padding:0; 
+	width:300px; 
+	list-style:none;
+	
+}
+.menu li{
+	padding:0; 
+	margin:0 0 1px 0;
+	 height:40px; 
+	 display:block; 
+	}
+.menu li a{
+	text-align:left;
+	height:40px; 
+	padding:0px 25px; 
+	font:16px Verdana, Arial, Helvetica, sans-serif; 
+	color: rgb(255, 255, 255); 
+	display:block; 
+	background:url('verMenuImages.png') 
+	0px 0px no-repeat; text-decoration:none;
+}
+.menu li a:hover
+{
+	background:url('verMenuImages.png') 0px -40px no-repeat; 
+	color: rgb(255, 255, 255);
+}
+.menu li a.active, .menu li a.active:hover{
+	background:url('verMenuImages.png') 0px -80px no-repeat; 
+	color: rgb(255, 255, 255);
+}
+.menu li a span{
+	line-height:40px;
+}
+

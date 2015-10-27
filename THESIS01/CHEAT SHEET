@@ -1,0 +1,118 @@
+CHEAT SHEET
+
+roles:
+0 = Admin
+1 = Social Worker General
+2 = nurse
+3 = Psychiatrist
+4 = Psychologist
+5 = House Parent
+6 = Physical Therapist
+7 = SW Older
+8 = SW Special Needs
+9 = SW Crisis Situation
+10 =SW Child/ Youth
+
+1 = Currently in pre-school
+2 = Finished pre-school
+3 = Currently in elementary
+4 = Finished elementary
+5 = Currently in high school
+6 = Finished high school
+7 = Currently in collage
+8 = Finished collage
+
+sECTORS
+1 = child and Youth   = 10 = cjei122592
+2 = Older Persons     = 7  = cjei1225	
+3 = Special Needs     = 8  = Cham
+4 = Crisis Situation  = 9  = mark89
+
+
+Decision
+0 = Pending
+1 = Attending
+2 = Not Attending
+
+Case Category = Client Sector
+
+initial medical tables
+1. laboratory_test
+2. medical_problems
+3. impairments
+4. immunizations
+5. illness
+6. notes_recommendation
+7. growth_records
+8. birth_history
+9. present_condition
+
+
+admission type
+1 = Referral
+2 = Surrender
+3 = Walk in(Found)
+4 = Self-surrendered (Crisis)
+
+client status
+0 = Pending
+1 = Active
+2 = Discharged
+3 = Pending Discharge
+4 = Pending SW
+5 =	Rejected
+
+conference type
+1 = Intervention case conference
+2 = Pre Admission case conference
+
+Conference Status
+0 = Not yet happening
+1 = Finished
+2 = Waiting for Minutes
+
+Notifications
+1 = A Client has been created
+2 = A Client is Pending for Discharge
+3 = A Client's Measurements have been updated
+4 = A Medical Request was made
+5 = The Client has been discharged
+6 = A Client has been admitted
+7 = A Client has been Rejected
+8 = A Conference was created
+
+9 = The Conference has ended and is waiting for your minutes.
+10 = A Minutes of the Meeting has been created.
+11 = The Client's Initial Medical Examination has been created.
+12 = A Psychological Report has been created.
+13 = A Phychiatrical Report has been created.
+14 = A House Report was Submitted.
+15 = A Home Life Report has been created.
+16 = 
+
+
+
+Client data = php code of client info 			    = include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_data.php');
+client info = html code displaying client data  = include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/General/Client_info.php');
+
+Side bars
+	SW
+		Admission = include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admission.php');
+		Custody   = include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_custody.php');
+	<?php
+		if($status == 0)
+        {
+          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_admission.php');
+        }
+        elseif($status == 1)
+        {
+          include($_SERVER['DOCUMENT_ROOT'].'/Thesis_programs/Current/THESIS01/application/views/header_footer/side_bar_custody.php');
+        }
+        ?>
+
+        <?php if($role == 7 || $role == 8 || $role == 9 || $role == 10){} ?>
+
+
+        $data['social_case'] = $this->clients->get_social_cases($client_id);
+              $data['document_list'] =  $this->files->get_uploaded_documents($client_id);
+              $data['home_plans'] = $this->clients->get_home_plans($client_id);

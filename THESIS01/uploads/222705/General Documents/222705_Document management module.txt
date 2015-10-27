@@ -1,0 +1,7 @@
+The next module is the document management module. The module enables the system
+to manage the documents of each user. The module would make use of a tagging feature
+as well as a system generated serial code for each document which will make search for
+certain documents easier. The module also features an audit trail that will inform the user
+of the changes or actions that were done on the document. The module includes a
+notification feature which lets the user know when a new document has been uploaded
+or, in the case of the medical staff users, when it is requested. Lastly, the module would have a checklist of documents to assist the social worker in identifying what documents are still missing and what documents are already on hand.

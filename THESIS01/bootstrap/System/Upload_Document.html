@@ -1,0 +1,173 @@
+ <html>
+ <title>  Hospicio De San Jose </title>
+    <link rel="icon" href="title logo.png" type="image/png">
+    <head>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="materialize/css/style.css"  />
+    </head>
+
+    <body class="grey lighten-4">
+      <div >
+        <header>
+          <!-- Logo -->
+             <div class="container">
+          <div  class="nav-wrapper" id="logo"></div>
+        </div>
+
+      
+ <div class="container">
+        <!-- Dropdown Structure -->
+         <ul id="admissiondrop" class="dropdown-content">
+           <li id="textzied"><a href="Create_Client.html">Create Client</a></li>
+           <li class="divider"></li> 
+              <li id="textzied"><a href="#">Initiate Pre-admission Case Conference</a></li>
+              <li class="divider"></li> 
+              <li id="textzied"><a href="#">Upload Social Case Study Report</a></li>
+              <li class="divider"></li> 
+              <li id="textzied"><a href="#">Request Initial Examnination</a></li>
+              <li class="divider"></li> 
+         </ul>
+         <!-- Dropdown Structure -->
+         <ul id="custodydrop" class="dropdown-content">
+
+              <li id="textzied"><a href="#">Upload Social Case Study Report</a></li>
+              <li class="divider"></li> 
+              <li id="textzied"><a href="#">Request Examnination</a></li>
+              <li class="divider"></li> 
+         </ul>
+         <!-- Dropdown Structure -->
+         <ul id="dischargeddrop" class="dropdown-content">
+           <li id="textzied"><a href="#">Archive</a></li>
+             <li class="divider"></li> 
+              <li id="textzied"><a href="#">Upload Social Case Study Report</a></li>
+              <li class="divider"></li> 
+
+         </ul>
+          <!-- Dropdown User Structure -->
+         <ul id="userdrop" class="dropdown-content">
+           <li id="textzied"><a href="#">Profile</a></li>
+             <li class="divider"></li> 
+              <li id="textzied"><a href="Login.html">Log Out</a></li>
+              <li class="divider"></li> 
+               <!-- Dropdown Notification Structure -->
+         </ul>
+          <ul id="notifdrop" class="dropdown-content">
+           <li id="textzied"><a href="#">Upload</a></li>
+             <li class="divider"></li> 
+              <li id="textzied"><a href="Login.html">Log Out</a></li>
+              <li class="divider"></li> 
+                <!-- Dropdown Messenger Structure -->
+         </ul>
+          <ul id="messagedrop" class="dropdown-content">
+           <li id="textzied"><a href="#">Porfile</a></li>
+             <li class="divider"></li> 
+              <li id="textzied"><a href="Login.html">Log Out</a></li>
+              <li class="divider"></li> 
+         </ul>
+         <!-- Navigation -->
+         <nav class="light-green lighten-2">
+          <div class="nav-wrapper">
+            
+            <ul class="left side-nav">
+              <li id="homeicon" class="center"><a href="Home.html"><i class="mdi-action-home"> </i></a></li>
+              <li id="navsize" class="center "><a href="#" class="dropdown-button" data-activates="admissiondrop">Admission<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+              <li id="navsize" class="center "><a href="#" class="dropdown-button" data-activates="custodydrop">Custody<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+              <li id="navsize" class="center "><a href="#" class="dropdown-button" data-activates="dischargeddrop">Discharged<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+              <li><a href="#">Others<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+            </ul>
+         
+            
+            <ul class="right side-nav">
+              
+              <li class="center"><a href="#" class="dropdown-button" data-activates="messagedrop"><i class="mdi-communication-email center"></i><span class="new badge light-green lighten-2">1</span></a></li>
+              <li  class="center"><a href="#" class="dropdown-button" data-activates="notifdrop"><i class=" mdi-social-notifications center"></i></a></li>
+              <li  class="center" style="width:235px;;"><a href="#" class="dropdown-button" data-activates="userdrop">  <i class="mdi-action-account-circle center" ><b> Administrator</b> <i class="mdi-navigation-arrow-drop-down right"></i></i></a></li>
+            </ul>
+          </div>
+        </nav>
+        </div>
+      </nav>
+       
+        </header>
+        </br>
+        <!-- Main Content -->
+        <main >
+          <div class="container">
+             <ul class="menu">
+            <li><a href="Create_Client.html" ><span>Client Information</span></a></li>
+            <li><a href="Add_Info.html" target="_self"><span>Additional Information</span></a></li>
+            <li><a href="Upload_Document.html" class="active"><span>Upload Document</span></a></li>
+          </ul>
+          </div>
+        <div class="container">
+
+          <div>
+
+         
+             <div id="loginsize" style="margin-top:-120px;">
+
+              <fieldset class="z-depth-2">
+                <center><h5 class="bold">CREATE CLIENT</h5></center>
+                               <h5 class="divider black"></h5>
+                   <div class="form-group">
+                    <label>File</label>
+                    <input class="form-control" placeholder="upload" name="document" type="file" value="">
+                  </br>
+                  <table class=" centered responsive-table bordered hoverable">
+                    <thead>
+                      <tr>
+                        <th data-field="id">Social Worker</th>
+                        <th data-field="name">File Name</th>
+                        <th data-field="price">Date Uploaded</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>Alvin</td>
+                        <td>SCSR</td>
+                        <td>2015</td>
+                      </tr>
+                      <tr>
+                        <td>Alan</td>
+                        <td>Medical</td>
+                        <td>2015</td>
+                      </tr>
+                      <tr>
+                        <td>Jonathan</td>
+                        <td>Picture</td>
+                        <td>2015</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                   </div>
+                   <div ALIGN="right">
+                     </br>
+                     <a href="Add_Info.html" class="btn  waves-effect btn-md  red z-depth-2 " id="sizebutton">Back</a>
+                 <a href="Final.html" class="btn  waves-effect btn-md  green z-depth-2 " id="sizebutton">Done</a>
+
+                  
+                   </div>
+                   </fieldset>
+                </div>
+          </div>
+      </div>
+        </main>
+        <!-- Footer -->
+        <div class="container"id="foottext">
+        <footer class="page-footer yellow darken-3" >
+          <div class="footer-copyright">
+            <div id="footertext">Created by CIDO</div>
+          </div>
+        </footer>
+       </div>
+      </div>  
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.js"></script>
+      <script type="text/javascript">
+     $(".dropdown-button").dropdown({hover:false});
+      </script>
+    </body>
+  </html>
