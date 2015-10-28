@@ -7,7 +7,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admin_reports.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_admin_reports.php'); ?>
             <div class="col s10">
                 <fieldset class="z-depth-2">
                 <table class=>

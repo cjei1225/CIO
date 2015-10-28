@@ -20,7 +20,7 @@ $Reason = array(
     'length' => 200,
 );
 
- include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+ include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
 
 $medical = "./uploads". DIRECTORY_SEPARATOR . $client_id . DIRECTORY_SEPARATOR . 'Medical Reports' . DIRECTORY_SEPARATOR;
 $psychiatric = "./uploads". DIRECTORY_SEPARATOR . $client_id . DIRECTORY_SEPARATOR . 'Psychiatric Reports' . DIRECTORY_SEPARATOR;
@@ -32,7 +32,7 @@ $physical = "./uploads". DIRECTORY_SEPARATOR . $client_id . DIRECTORY_SEPARATOR 
 <main>
   <div class="container">
     <div class="row">
-      <?php     include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php'); ?>
+      <?php     include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_custody.php'); ?>
       <div class="col s10">
       <div class="col s12">
         <ul class="tabs" width="100%;">

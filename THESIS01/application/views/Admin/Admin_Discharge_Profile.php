@@ -11,12 +11,12 @@ $file = array(
     'value' => set_value('file'),
 );
 
-include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
 ?>
 <main>
     <div class="container">
   		<div class="row">
-        <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_custody.php'); ?>
         <div class="col s10">
   	  		<fieldset class="z-depth-2">
             <center>

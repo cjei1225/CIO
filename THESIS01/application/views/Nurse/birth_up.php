@@ -116,7 +116,7 @@ $age = ageCalculator($birthday);
 
  <div class="container">
      <div class="row">
-       <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/Nurse/side_bar_custody.php'); ?>
+       <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/Nurse/side_bar_custody.php'); ?>
         <div class="col s10">
 	        <fieldset class="z-depth-1">
 	          <center>

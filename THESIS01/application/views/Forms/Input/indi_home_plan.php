@@ -6,7 +6,7 @@ $activity = array(
   'style' => 'width:50%;'
 );
 
- include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+ include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
 
 ?>
 
@@ -46,11 +46,11 @@ border-radius: 4px;
         <?php 
         if($status == 0)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
+          include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
         }
         elseif($status == 1)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
+          include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
         }
 
         ?>

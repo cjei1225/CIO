@@ -1,7 +1,7 @@
 <?php
 
 
-   include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+   include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
     $birthStat    = 'Healthy';
     $healthStat   = 'Healthy';
 
@@ -11,7 +11,7 @@
 <main >
     <div class="container">
     	<div class="row">
-        <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/sidebar_checklist.php'); ?>
+        <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/sidebar_checklist.php'); ?>
 	     	<div class="col s10">
 	     		<div class="col s4">
 		        	<?php
@@ -75,10 +75,10 @@
 		            </div>
                   <?php 
 
-                          if($client_sector == 1){include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/Social_Worker/checklists/check_list_CY.php'); }
-                          elseif($client_sector == 2){include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/Social_Worker/checklists/check_list_OP.php');}
-                          elseif($client_sector == 3){include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/Social_Worker/checklists/check_list_SP.php'); }
-                          elseif($client_sector == 4){include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/Social_Worker/checklists/check_list_CS.php'); }  
+                          if($client_sector == 1){include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/Social_Worker/checklists/check_list_CY.php'); }
+                          elseif($client_sector == 2){include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/Social_Worker/checklists/check_list_OP.php');}
+                          elseif($client_sector == 3){include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/Social_Worker/checklists/check_list_SP.php'); }
+                          elseif($client_sector == 4){include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/Social_Worker/checklists/check_list_CS.php'); }  
         ?>
 		        </fieldset>
 		    </div>

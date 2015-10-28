@@ -8,7 +8,7 @@ $file_ploc = array(
     'length' => 20,
 
 );
-include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
 ?>
 <main>
     <div class="container">
@@ -64,7 +64,7 @@ include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client
                       </center>
                       <h5 class="divider black"></h5>
                       
-                      <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_info.php'); ?>
+                      <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_info.php'); ?>
                   <!--	<?php echo form_open_multipart('auth/Discharge_client');?>
                   		<div class="file-field input-field row">
                               <?php 

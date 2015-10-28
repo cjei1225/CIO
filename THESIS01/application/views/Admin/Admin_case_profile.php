@@ -1,6 +1,6 @@
 <?php 
 
-include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_data.php');
+include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_data.php');
 
 
 ?>
@@ -11,11 +11,11 @@ include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client
 <?php 
         if($status == 0)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
+          include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_admission.php');
         }
         elseif($status == 1)
         {
-          include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
+          include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/header_footer/side_bar_custody.php');
         }
 
         ?>
@@ -26,7 +26,7 @@ include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client
                           <h5 class="bold">Client</h5>
                         </center>
                         <h5 class="divider black"></h5>
-                            <?php include($_SERVER['DOCUMENT_ROOT'].'CIO/THESIS01/application/views/General/Client_info.php');  ?>
+                            <?php include($_SERVER['DOCUMENT_ROOT'].'/CIO/THESIS01/application/views/General/Client_info.php');  ?>
                         
                     
                     <div class="col s12">
