@@ -1105,7 +1105,19 @@ class Auth extends CI_Controller
 
 // End Admission - new
 
-
+function unknown_function()
+{
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+	echo 'testetetetekaljlqwjqwjeqlwekq';
+}
 
  //Admission - old
 
