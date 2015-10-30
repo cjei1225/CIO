@@ -1,22 +1,22 @@
-<?php foreach($dis_slip as $row_info) 
-      {
-          $client_id      = $row_info->intake_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
+<?php 
+$client_id      = $dis_slip[0]->intake_id;
+$fname          = $dis_slip[0]->client_fname;
+$mname          = $dis_slip[0]->client_mname;
+$lname          = $dis_slip[0]->client_lname;
 
-          $gender         = $row_info->gender;
-          $case           = $row_info->client_sector;
-          $created        = $row_info->created;
+$gender         = $dis_slip[0]->gender;
+$case           = $dis_slip[0]->client_sector;
+$created        = $dis_slip[0]->created;
 
-          $address	  	  = $row_info->address;
-          $contact_num    = $row_info->contact_num;
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      $date = date('F-d-Y');
-      if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
+$address	  	  = $dis_slip[0]->address;
+$contact_num    = $dis_slip[0]->contact_num;
+$first_name     = $dis_slip[0]->first_name;
+$last_name      = $dis_slip[0]->last_name;
+$dis_reason     = $dis_slip[0]->dis_reason;
+      
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+$date = date('F-d-Y');
+if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
 
 $html='  
 <main >
@@ -38,12 +38,12 @@ $html='
         <label>Age upon Discharge/Gender: <u> Computed dapat / '.$gender .'</u> </label><br>
         <label>Date admitted: <u>'.$created.'</u> </label><br>
         <label>Case Category: <u>'. $case .'</u> </label><br>
-        <label>Reason/s for discharge: <u></u> </label><br>
+        <label>Reason/s for discharge: <u>'. $dis_reason.'</u> </label><br>
         <label></label><br>
         <label></label><br>
         <label>Address: <u>'.$address.'</u></label><br>
         <label>Tel. / Contact #: <u>'.$contact_num.'</u></label><br>
-        <label>Signature: <u> No Idea </u></label><br>
+        <label></label><br>
         <label></label><br>
         <label></label><br>
         <label></label><br>
@@ -68,7 +68,7 @@ $html='
             <label></label><br>
             <label><b>Recommending Approval:</b></label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label><i>Head, Social Services</i></label><br>
             <label></label><br>
           </div>
@@ -81,13 +81,13 @@ $html='
             <label></label><br>
             <label></label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label><i>Sister in-charge</i></label><br>
             <label></label><br>
           </div> 
           <label><b>Approved by:</b></label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label><i>Administrator</i></label><br>
         </div>
 

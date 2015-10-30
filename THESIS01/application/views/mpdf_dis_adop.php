@@ -1,27 +1,26 @@
-<?php foreach($dis_adop as $row_info) 
-      {
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $age            = $row_info->age;
-          $birthplace     = $row_info->birthplace;
-          $birthday       = $row_info->birthday;
-          $birth_stat     = $row_info->birth_stat;
-          $gender         = $row_info->gender;
-          $case           = $row_info->client_sector;
-          $created        = date('F-d-Y', strtotime($row_info->created));
-          $adop_father    = $row_info->adop_father;
-          $adop_mother    = $row_info->adop_mother;
-          $dorm           = $row_info->d_name;
+<?php 
+$client_id      = $dis_adop[0]->client_id;
+$fname          = $dis_adop[0]->client_fname;
+$mname          = $dis_adop[0]->client_mname;
+$lname          = $dis_adop[0]->client_lname;
+$age            = $dis_adop[0]->age;
+$birthplace     = $dis_adop[0]->birthplace;
+$birthday       = $dis_adop[0]->birthday;
+$birth_stat     = $dis_adop[0]->birth_stat;
+$gender         = $dis_adop[0]->gender;
+$case           = $dis_adop[0]->client_sector;
+$created        = date('F-d-Y', strtotime($dis_adop[0]->created));
+$adop_father    = $dis_adop[0]->adop_father;
+$adop_mother    = $dis_adop[0]->adop_mother;
+$dorm           = $dis_adop[0]->d_name;
 
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      $date = date('F-d-Y');
-      $time = date('h:i:s A');
-      if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
+$first_name     = $dis_adop[0]->first_name;
+$last_name      = $dis_adop[0]->last_name;
+
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+$date = date('F-d-Y');
+$time = date('h:i:s A');
+if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
 
 $html='  
 <main >
@@ -76,12 +75,12 @@ $html='
             <label></label><br>
             <label>Recommending Approval:</label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label>Head, Social Services</label><br>
             <label></label><br>
             <label>Approved:</label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label>Administrator</label><br>
           </div>
           <div id="right_col">  
@@ -99,7 +98,7 @@ $html='
             <label></label><br>
             <label></label><br>
             <label></label><br>
-            <label><u>sa system na dapat</u></label><br>
+            <label><u></u></label><br>
             <label>Head Nurse, Nursery Section</label><br>
             <label></label><br>
             <label></label><br>
