@@ -7652,6 +7652,25 @@ class Auth extends CI_Controller
 			}
 	}
 
+	function mpdf_trial($client_id)  // no db at thesisdb
+	{
+		//$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
+		
+		//if ($this->form_validation->run()) 
+		//	{
+				//$client_id = $this->form_validation->set_value('client_id');
+				$data['social'] = $this->clients->get_initial_case($client_id);
+
+				$html = $this->load->view('mpdf_initial_social', $data, true); // render the view into HTML
+     
+			    $this->load->library('m_pdf');
+			    $m_pdf = $this->m_pdf->load();
+			    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+			    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+			    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+			//}
+	}
+
 	function blank()
 	{
 
