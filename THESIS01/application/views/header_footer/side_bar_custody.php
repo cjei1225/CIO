@@ -121,7 +121,14 @@
                         <?php echo form_close();
                   }  
                   ?>
-                   
+
+                   <?php
+                  echo form_open('auth/mpdf_files');
+                  echo form_hidden('client_id', $client_id);
+                  echo form_hidden('sw_id', $sw_id);                          
+                  ?>
+                  <button type="submit" value="view" class="list-group-item btn waves-effect btn-md  white-text deep-purple lighten-2 z-depth-2" id="userside">MPDF Files</button>
+                         
                  </div>
               </div>
             </div>

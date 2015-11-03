@@ -1,29 +1,28 @@
-<?php foreach($psycho as $row_info) 
-      {
-          $created        = date('F-d-Y', strtotime($row_info->created));
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $age            = $row_info->age;
-          $gender         = $row_info->gender;
-          $religion       = $row_info->religion;
-          $Birthday       = $row_info->birthday;
-          $refer_by       = $row_info->refer_by;
-          $refer_date     = $row_info->refer_date;
-          $refer_reason   = $row_info->refer_reason;
-          $case_bg        = $row_info->case_bg;
-          $educ_attain    = $row_info->educ_attain;
-          $observed_beh   = $row_info->observed_beh;
-          $intellectual_ability  = $row_info->intellectual_ability;
-          $emotional_stat = $row_info->emotional_stat;
-          $impression     = $row_info->impression;
-          $recommendation = $row_info->recommendation;
+<?php 
+$created        = date('F-d-Y', strtotime($psycho[0]->created));
+$client_id      = $psycho[0]->client_id;
+$fname          = $psycho[0]->client_fname;
+$mname          = $psycho[0]->client_mname;
+$lname          = $psycho[0]->client_lname;
+$age            = $psycho[0]->age;
+$gender         = $psycho[0]->gender;
+$religion       = $psycho[0]->religion;
+$Birthday       = $psycho[0]->birthday;
+$refer_by       = $psycho[0]->refer_by;
+$refer_date     = $psycho[0]->refer_date;
+$refer_reason   = $psycho[0]->refer_reason;
+$case_bg        = $psycho[0]->case_bg;
+$educ_attain    = $psycho[0]->educ_attain;
+$observed_beh   = $psycho[0]->observed_beh;
+$intellectual_ability  = $psycho[0]->intellectual_ability;
+$emotional_stat = $psycho[0]->emotional_stat;
+$impression     = $psycho[0]->impression;
+$recommendation = $psycho[0]->recommendation;
 
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+$first_name     = $psycho[0]->first_name;
+$last_name      = $psycho[0]->last_name;
+
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
 
 
 $html='  

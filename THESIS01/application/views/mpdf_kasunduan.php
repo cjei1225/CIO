@@ -1,23 +1,17 @@
 <?php
-
-foreach($kasunduan as $row_info) 
-{
-    
-    $client_id      = $row_info->client_id;
-    $fname          = $row_info->client_fname;
-    $lname          = $row_info->client_lname;
-    $first_name     = $row_info->first_name;
-    $last_name      = $row_info->last_name;
-    $Pname          = $row_info->parent_name;
-    $address        = $row_info->address;
-    $duration       = $row_info->duration;
-    $signature      = $row_info->signature;
-    $witness1       = $row_info->witness_1;
-    $witness2       = $row_info->witness_2;
-    $created        = date('F-d-Y', strtotime($row_info->created));
-
-   
-}
+  
+$client_id      = $kasunduan[0]->client_id;
+$fname          = $kasunduan[0]->client_fname;
+$lname          = $kasunduan[0]->client_lname;
+$first_name     = $kasunduan[0]->first_name;
+$last_name      = $kasunduan[0]->last_name;
+$Pname          = $kasunduan[0]->parent_name;
+$address        = $kasunduan[0]->address;
+$duration       = $kasunduan[0]->duration;
+$signature      = $kasunduan[0]->signature;
+$witness1       = $kasunduan[0]->witness_1;
+$witness2       = $kasunduan[0]->witness_2;
+$created        = date('F-d-Y', strtotime($kasunduan[0]->created));
 
 $html=
 '<main >
@@ -32,7 +26,7 @@ $html=
   </div>
     <p style="text-align:right;">Petsa : '.$created.'</p>
 
-    <h6 class="bold"  style="text-align:center;">KASUNDUAN SA PAGTANGGAP</h6>
+    <h6 class="bold"  style="text-align:center;">Kasunduan SA PAGTANGGAP</h6>
     <h5 class="divider black"></h5>
     <div class="form-group">
     <p>Ako si <u>'.$Pname.'</u>, naninirahan sa <u>'.$address.'</u>, may sapat na gulang  (walang asawa/may asawa/balo/hiwalay), sa pamamagitan ng sulat na ito ay nakikiusap sa Hospicio de San Jose na tanggapin ang batang si <u>'.$fname.' '.$lname.'</u>, sa loob ng <u>'.$duration.'</u> (buwan / taon). </p>
