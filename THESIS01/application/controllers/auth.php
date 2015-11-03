@@ -846,7 +846,8 @@ class Auth extends CI_Controller
 	}
 	
 	function background_info()
-	{		$data['client_id'] = $this->input->post('client_id');
+	{		
+		$data['client_id'] = $this->input->post('client_id');
 		$data["admission_type"] = $this->input->post('admission_type');
 
 		if (!$this->tank_auth->is_logged_in()) {									// logged in
@@ -1105,19 +1106,7 @@ class Auth extends CI_Controller
 
 // End Admission - new
 
-function unknown_function()
-{
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-	echo 'testetetetekaljlqwjqwjeqlwekq';
-}
+
 
  //Admission - old
 
@@ -3800,8 +3789,10 @@ function unknown_function()
 		{
 			if($remarks != "")
 			{
+				$client = $this->clients->get_client_by_id($client_id[$i]);
 				
 				$this->tank_auth->create_report_log($client_id[$i], $remarks, $user_id);
+				$this->notification($client[0]->sw_id, '14');
 				$i = $i + 1;
 
 
@@ -4363,580 +4354,6 @@ function unknown_function()
 		}
 	}
 
-	function health_medical()
-	{
-
-		if (!$this->tank_auth->is_logged_in()) {									// logged in
-			redirect('auth/login');
-
-		} 
-		else {
-			$this->get_notifications();
-			$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('height', 'height', 'trim|xss_clean');
-			$this->form_validation->set_rules('weight', 'weight', 'trim|xss_clean');
-			$this->form_validation->set_rules('headCir', 'headCir', 'trim|xss_clean');
-			$this->form_validation->set_rules('chestCir', 'chestCir', 'trim|xss_clean');
-			$this->form_validation->set_rules('abdoCir', 'abdoCir', 'trim|xss_clean');
-			$this->form_validation->set_rules('hairColor', 'hairColor', 'trim|xss_clean');
-			$this->form_validation->set_rules('eyeColor', 'eyeColor', 'trim|xss_clean');
-			$this->form_validation->set_rules('skinColor', 'skinColor', 'trim|xss_clean');
-			$this->form_validation->set_rules('presentLoc', 'presentLoc', 'trim|xss_clean');
-			$this->form_validation->set_rules('presentApp', 'presentApp', 'trim|xss_clean');
-			$this->form_validation->set_rules('admissionApp', 'admissionApp', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth1', 'yearMonth1', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth2', 'yearMonth2', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth3', 'yearMonth3', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth4', 'yearMonth4', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth5', 'yearMonth5', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth6', 'yearMonth6', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth7', 'yearMonth7', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth8', 'yearMonth8', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth9', 'yearMonth9', 'trim|xss_clean');
-			$this->form_validation->set_rules('yearMonth10', 'yearMonth10', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth1', 'ageMonth1', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth2', 'ageMonth2', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth3', 'ageMonth3', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth4', 'ageMonth4', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth5', 'ageMonth5', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth6', 'ageMonth6', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth7', 'ageMonth7', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth8', 'ageMonth8', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth9', 'ageMonth9', 'trim|xss_clean');
-			$this->form_validation->set_rules('ageMonth10', 'ageMonth10', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos1', 'weightKilos1', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos2', 'weightKilos2', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos3', 'weightKilos3', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos4', 'weightKilos4', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos5', 'weightKilos5', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos6', 'weightKilos6', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos7', 'weightKilos7', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos8', 'weightKilos8', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos9', 'weightKilos9', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightKilos10', 'weightKilos10', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight1', 'lengthHeight1', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight2', 'lengthHeight2', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight3', 'lengthHeight3', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight4', 'lengthHeight4', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight5', 'lengthHeight5', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight6', 'lengthHeight6', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight7', 'lengthHeight7', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight8', 'lengthHeight8', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight9', 'lengthHeight9', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthHeight10', 'lengthHeight10', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm1', 'HCcm1', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm2', 'HCcm2', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm3', 'HCcm3', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm4', 'HCcm4', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm5', 'HCcm5', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm6', 'HCcm6', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm7', 'HCcm7', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm8', 'HCcm8', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm9', 'HCcm9', 'trim|xss_clean');
-			$this->form_validation->set_rules('HCcm10', 'HCcm10', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm1', 'CCcm1', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm2', 'CCcm2', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm3', 'CCcm3', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm4', 'CCcm4', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm5', 'CCcm5', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm6', 'CCcm6', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm7', 'CCcm7', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm8', 'CCcm8', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm9', 'CCcm9', 'trim|xss_clean');
-			$this->form_validation->set_rules('CCcm10', 'CCcm10', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth1', 'teeth1', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth2', 'teeth2', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth3', 'teeth3', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth4', 'teeth4', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth5', 'teeth5', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth6', 'teeth6', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth7', 'teeth7', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth8', 'teeth8', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth9', 'teeth9', 'trim|xss_clean');
-			$this->form_validation->set_rules('teeth10', 'teeth10', 'trim|xss_clean');
-			$this->form_validation->set_rules('marksPhy', 'marksPhy', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserHead', 'obserHead', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserEyes', 'obserEyes', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserNose', 'obserNose', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserEars', 'obserEars', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserMouth', 'obserMouth', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserNeck', 'obserNeck', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserChest', 'obserChest', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserAbdo', 'obserAbdo', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserGen', 'obserGen', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserSpinal', 'obserSpinal', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserExtre', 'obserExtre', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserPulse', 'obserPulse', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserBlood', 'obserBlood', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserNer', 'obserNer', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserRes', 'obserRes', 'trim|xss_clean');
-			$this->form_validation->set_rules('obserSkin', 'obserSkin', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoHead', 'abnoHead', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoEyes', 'abnoEyes', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoNose', 'abnoNose', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoEars', 'abnoEars', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoMouth', 'abnoMouth', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoNeck', 'abnoNeck', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoChest', 'abnoChest', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoAdbo', 'abnoAdbo', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoGen', 'abnoGen', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoSpinal', 'abnoSpinal', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoExtre', 'abnoExtre', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoPulse', 'abnoPulse', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoBlood', 'abnoBlood', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoNer', 'abnoNer', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoRes', 'abnoRes', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnoSkin', 'abnoSkin', 'trim|xss_clean');
-			$this->form_validation->set_rules('gestationAge', 'gestationAge', 'trim|xss_clean');
-			$this->form_validation->set_rules('fullTerm', 'fullTerm', 'trim|xss_clean');
-			$this->form_validation->set_rules('preMature', 'preMature', 'trim|xss_clean');
-			$this->form_validation->set_rules('normalDel', 'normalDel', 'trim|xss_clean');
-			$this->form_validation->set_rules('caesarianDel', 'caesarianDel', 'trim|xss_clean');
-			$this->form_validation->set_rules('forcep', 'forcep', 'trim|xss_clean');
-			$this->form_validation->set_rules('bornAt', 'bornAt', 'trim|xss_clean');
-			$this->form_validation->set_rules('deliverBy', 'deliverBy', 'trim|xss_clean');
-			$this->form_validation->set_rules('deliverName', 'deliverName', 'trim|xss_clean');
-			$this->form_validation->set_rules('compli', 'compli', 'trim|xss_clean');
-			$this->form_validation->set_rules('weightBirth', 'weightBirth', 'trim|xss_clean');
-			$this->form_validation->set_rules('lengthBirth', 'lengthBirth', 'trim|xss_clean');
-			$this->form_validation->set_rules('headCirBirth', 'headCirBirth', 'trim|xss_clean');
-			$this->form_validation->set_rules('chestCirBirth', 'chestCirBirth', 'trim|xss_clean');
-			$this->form_validation->set_rules('apgarScore', 'apgarScore', 'trim|xss_clean');
-			$this->form_validation->set_rules('abnormalBirth', 'abnormalBirth', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateBCG', 'dateBCG', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiBCG', 'physiBCG', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateDPT1', 'dateDPT1', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiDPT1', 'physiDPT1', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateDPT2', 'dateDPT2', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiDPT2', 'physiDPT2', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateDPT3', 'dateDPT3', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiDPT3', 'physiDPT3', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateDPTBoos', 'dateDPTBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiDPTBoos', 'physiDPTBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateOPV1', 'dateOPV1', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiOPV1', 'physiOPV1', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateOPV2', 'dateOPV2', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiOPV2', 'physiOPV2', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateOPV3', 'dateOPV3', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiOPV3', 'physiOPV3', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateOPVBoos', 'dateOPVBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiOPVBoos', 'physiOPVBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateMeas', 'dateMeas', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiMeas', 'physiMeas', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateMMR', 'dateMMR', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiMMR', 'physiMMR', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHIB1', 'dateHIB1', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHIB1', 'physiHIB1', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHIB2', 'dateHIB2', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHIB2', 'physiHIB2', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHIB3', 'dateHIB3', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHIB3', 'physiHIB3', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHIBBoos', 'dateHIBBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHIBBoos', 'physiHIBBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHepa1', 'dateHepa1', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHepa1', 'physiHepa1', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHepa2', 'dateHepa2', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHepa2', 'physiHepa2', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHepa3', 'dateHepa3', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHepa3', 'physiHepa3', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateHepaBoos', 'dateHepaBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiHepaBoos', 'physiHepaBoos', 'trim|xss_clean');
-			$this->form_validation->set_rules('dateOth', 'dateOth', 'trim|xss_clean');
-			$this->form_validation->set_rules('physiOth', 'physiOth', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate1', 'labDate1', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate2', 'labDate2', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate3', 'labDate3', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate4', 'labDate4', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate5', 'labDate5', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate6', 'labDate6', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate7', 'labDate7', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate8', 'labDate8', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate9', 'labDate9', 'trim|xss_clean');
-			$this->form_validation->set_rules('labDate10', 'labDate10', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest1', 'labTest1', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest2', 'labTest2', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest3', 'labTest3', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest4', 'labTest4', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest5', 'labTest5', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest6', 'labTest6', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest7', 'labTest7', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest8', 'labTest8', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest9', 'labTest9', 'trim|xss_clean');
-			$this->form_validation->set_rules('labTest10', 'labTest10', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult1', 'labResult1', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult2', 'labResult2', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult3', 'labResult3', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult4', 'labResult4', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult5', 'labResult5', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult6', 'labResult6', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult7', 'labResult7', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult8', 'labResult8', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult9', 'labResult9', 'trim|xss_clean');
-			$this->form_validation->set_rules('labResult10', 'labResult10', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction1', 'labAction1', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction2', 'labAction2', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction3', 'labAction3', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction4', 'labAction4', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction5', 'labAction5', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction6', 'labAction6', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction7', 'labAction7', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction8', 'labAction8', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction9', 'labAction9', 'trim|xss_clean');
-			$this->form_validation->set_rules('labAction10', 'labAction10', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate1', 'illDate1', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate2', 'illDate2', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate3', 'illDate3', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate4', 'illDate4', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate5', 'illDate5', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate6', 'illDate6', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate7', 'illDate7', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate8', 'illDate8', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate9', 'illDate9', 'trim|xss_clean');
-			$this->form_validation->set_rules('illDate10', 'illDate10', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge1', 'illAge1', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge2', 'illAge2', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge3', 'illAge3', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge4', 'illAge4', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge5', 'illAge5', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge6', 'illAge6', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge7', 'illAge7', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge8', 'illAge8', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge9', 'illAge9', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAge10', 'illAge10', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName1', 'illName1', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName2', 'illName2', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName3', 'illName3', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName4', 'illName4', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName5', 'illName5', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName6', 'illName6', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName7', 'illName7', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName8', 'illName8', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName9', 'illName9', 'trim|xss_clean');
-			$this->form_validation->set_rules('illName10', 'illName10', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed1', 'illMed1', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed2', 'illMed2', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed3', 'illMed3', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed4', 'illMed4', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed5', 'illMed5', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed6', 'illMed6', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed7', 'illMed7', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed8', 'illMed8', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed9', 'illMed9', 'trim|xss_clean');
-			$this->form_validation->set_rules('illMed10', 'illMed10', 'trim|xss_clean');
-			$this->form_validation->set_rules('illActive', 'illActive', 'trim|xss_clean');
-			$this->form_validation->set_rules('illCompli', 'illCompli', 'trim|xss_clean');
-			$this->form_validation->set_rules('illAccident', 'illAccident', 'trim|xss_clean');
-			$this->form_validation->set_rules('medChild', 'medChild', 'trim|xss_clean');
-			$this->form_validation->set_rules('medTake', 'medTake', 'trim|xss_clean');
-			$this->form_validation->set_rules('medPhysician', 'medPhysician', 'trim|xss_clean');
-			$this->form_validation->set_rules('medReason', 'medReason', 'trim|xss_clean');
-			$this->form_validation->set_rules('medSeizure', 'medSeizure', 'trim|xss_clean');
-			$this->form_validation->set_rules('medChronic', 'medChronic', 'trim|xss_clean');
-			$this->form_validation->set_rules('medAllergic', 'medAllergic', 'trim|xss_clean');
-			$this->form_validation->set_rules('medAllergicMed', 'medAllergicMed', 'trim|xss_clean');
-			$this->form_validation->set_rules('dentalHealth', 'dentalHealth', 'trim|xss_clean');
-			$this->form_validation->set_rules('dentalProgress', 'dentalProgress', 'trim|rxss_clean');
-			$this->form_validation->set_rules('notesReco', 'notesReco', 'trim|xss_clean');
-			$this->form_validation->set_rules('doctor', 'doctor', 'trim|xss_clean');
-			$this->form_validation->set_rules('licenseNo', 'licenseNo', 'trim|xss_clean');
-			$this->form_validation->set_rules('ptrNo', 'ptrNo', 'trim|xss_clean');
-			$this->form_validation->set_rules('hospitalClinic', 'hospitalClinic', 'trim|xss_clean');
-			
-			
-			$data['errors'] = array();
-
-			if ($this->form_validation->run()) 
-			{								// validation ok
-				if (!is_null($data = $this->tank_auth->create_health_medical(
-						$this->form_validation->set_value('client_id'),
-						$this->form_validation->set_value('height'),
-						$this->form_validation->set_value('weight'),
-						$this->form_validation->set_value('headCir'),
-						$this->form_validation->set_value('chestCir'),
-						$this->form_validation->set_value('abdoCir'),
-						$this->form_validation->set_value('hairColor'),
-						$this->form_validation->set_value('eyeColor'),
-						$this->form_validation->set_value('skinColor'),
-						$this->form_validation->set_value('presentLoc'),
-						$this->form_validation->set_value('presentApp'),
-						$this->form_validation->set_value('admissionApp'),
-						$this->form_validation->set_value('yearMonth1'),
-						$this->form_validation->set_value('yearMonth2'),
-						$this->form_validation->set_value('yearMonth3'),
-						$this->form_validation->set_value('yearMonth4'),
-						$this->form_validation->set_value('yearMonth5'),
-						$this->form_validation->set_value('yearMonth6'),
-						$this->form_validation->set_value('yearMonth7'),
-						$this->form_validation->set_value('yearMonth8'),
-						$this->form_validation->set_value('yearMonth9'),
-						$this->form_validation->set_value('yearMonth10'),
-						$this->form_validation->set_value('ageMonth1'),
-						$this->form_validation->set_value('ageMonth2'),
-						$this->form_validation->set_value('ageMonth3'),
-						$this->form_validation->set_value('ageMonth4'),
-						$this->form_validation->set_value('ageMonth5'),
-						$this->form_validation->set_value('ageMonth6'),
-						$this->form_validation->set_value('ageMonth7'),
-						$this->form_validation->set_value('ageMonth8'),
-						$this->form_validation->set_value('ageMonth9'),
-						$this->form_validation->set_value('ageMonth10'),
-						$this->form_validation->set_value('weightKilos1'),
-						$this->form_validation->set_value('weightKilos2'),
-						$this->form_validation->set_value('weightKilos3'),
-						$this->form_validation->set_value('weightKilos4'),
-						$this->form_validation->set_value('weightKilos5'),
-						$this->form_validation->set_value('weightKilos6'),
-						$this->form_validation->set_value('weightKilos7'),
-						$this->form_validation->set_value('weightKilos8'),
-						$this->form_validation->set_value('weightKilos9'),
-						$this->form_validation->set_value('weightKilos10'),
-						$this->form_validation->set_value('lengthHeight1'),
-						$this->form_validation->set_value('lengthHeight2'),
-						$this->form_validation->set_value('lengthHeight3'),
-						$this->form_validation->set_value('lengthHeight4'),
-						$this->form_validation->set_value('lengthHeight5'),
-						$this->form_validation->set_value('lengthHeight6'),
-						$this->form_validation->set_value('lengthHeight7'),
-						$this->form_validation->set_value('lengthHeight8'),
-						$this->form_validation->set_value('lengthHeight9'),
-						$this->form_validation->set_value('lengthHeight10'),
-						$this->form_validation->set_value('HCcm1'),
-						$this->form_validation->set_value('HCcm2'),
-						$this->form_validation->set_value('HCcm3'),
-						$this->form_validation->set_value('HCcm4'),
-						$this->form_validation->set_value('HCcm5'),
-						$this->form_validation->set_value('HCcm6'),
-						$this->form_validation->set_value('HCcm7'),
-						$this->form_validation->set_value('HCcm8'),
-						$this->form_validation->set_value('HCcm9'),
-						$this->form_validation->set_value('HCcm10'),
-						$this->form_validation->set_value('CCcm1'),
-						$this->form_validation->set_value('CCcm2'),
-						$this->form_validation->set_value('CCcm3'),
-						$this->form_validation->set_value('CCcm4'),
-						$this->form_validation->set_value('CCcm5'),
-						$this->form_validation->set_value('CCcm6'),
-						$this->form_validation->set_value('CCcm7'),
-						$this->form_validation->set_value('CCcm8'),
-						$this->form_validation->set_value('CCcm9'),
-						$this->form_validation->set_value('CCcm10'),
-						$this->form_validation->set_value('teeth1'),
-						$this->form_validation->set_value('teeth2'),
-						$this->form_validation->set_value('teeth3'),
-						$this->form_validation->set_value('teeth4'),
-						$this->form_validation->set_value('teeth5'),
-						$this->form_validation->set_value('teeth6'),
-						$this->form_validation->set_value('teeth7'),
-						$this->form_validation->set_value('teeth8'),
-						$this->form_validation->set_value('teeth9'),
-						$this->form_validation->set_value('teeth10'),
-						$this->form_validation->set_value('marksPhy'),
-						$this->form_validation->set_value('obserHead'),
-						$this->form_validation->set_value('obserEyes'),
-						$this->form_validation->set_value('obserNose'),
-						$this->form_validation->set_value('obserEars'),
-						$this->form_validation->set_value('obserMouth'),
-						$this->form_validation->set_value('obserNeck'),
-						$this->form_validation->set_value('obserChest'),
-						$this->form_validation->set_value('obserAbdo'),
-						$this->form_validation->set_value('obserGen'),
-						$this->form_validation->set_value('obserSpinal'),
-						$this->form_validation->set_value('obserExtre'),
-						$this->form_validation->set_value('obserPulse'),
-						$this->form_validation->set_value('obserBlood'),
-						$this->form_validation->set_value('obserNer'),
-						$this->form_validation->set_value('obserRes'),
-						$this->form_validation->set_value('obserSkin'),
-						$this->form_validation->set_value('abnoHead'),
-						$this->form_validation->set_value('abnoEyes'),
-						$this->form_validation->set_value('abnoNose'),
-						$this->form_validation->set_value('abnoEars'),
-						$this->form_validation->set_value('abnoMouth'),
-						$this->form_validation->set_value('abnoNeck'),
-						$this->form_validation->set_value('abnoChest'),
-						$this->form_validation->set_value('abnoAdbo'),
-						$this->form_validation->set_value('abnoGen'),
-						$this->form_validation->set_value('abnoSpinal'),
-						$this->form_validation->set_value('abnoExtre'),
-						$this->form_validation->set_value('abnoPulse'),
-						$this->form_validation->set_value('abnoBlood'),
-						$this->form_validation->set_value('abnoNer'),
-						$this->form_validation->set_value('abnoRes'),
-						$this->form_validation->set_value('abnoSkin'),
-						$this->form_validation->set_value('gestationAge'),
-						$this->form_validation->set_value('fullTerm'),
-						$this->form_validation->set_value('preMature'),
-						$this->form_validation->set_value('normalDel'),
-						$this->form_validation->set_value('caesarianDel'),
-						$this->form_validation->set_value('forcep'),
-						$this->form_validation->set_value('bornAt'),
-						$this->form_validation->set_value('deliverBy'),
-						$this->form_validation->set_value('deliverName'),
-						$this->form_validation->set_value('compli'),
-						$this->form_validation->set_value('weightBirth'),
-						$this->form_validation->set_value('lengthBirth'),
-						$this->form_validation->set_value('headCirBirth'),
-						$this->form_validation->set_value('chestCirBirth'),
-						$this->form_validation->set_value('apgarScore'),
-						$this->form_validation->set_value('abnormalBirth'),
-						$this->form_validation->set_value('dateBCG'),
-						$this->form_validation->set_value('physiBCG'),
-						$this->form_validation->set_value('dateDPT1'),
-						$this->form_validation->set_value('physiDPT1'),
-						$this->form_validation->set_value('dateDPT2'),
-						$this->form_validation->set_value('physiDPT2'),
-						$this->form_validation->set_value('dateDPT3'),
-						$this->form_validation->set_value('physiDPT3'),
-						$this->form_validation->set_value('dateDPTBoos'),
-						$this->form_validation->set_value('physiDPTBoos'),
-						$this->form_validation->set_value('dateOPV1'),
-						$this->form_validation->set_value('physiOPV1'),
-						$this->form_validation->set_value('dateOPV2'),
-						$this->form_validation->set_value('physiOPV2'),
-						$this->form_validation->set_value('dateOPV3'),
-						$this->form_validation->set_value('physiOPV3'),
-						$this->form_validation->set_value('dateOPVBoos'),
-						$this->form_validation->set_value('physiOPVBoos'),
-						$this->form_validation->set_value('dateMeas'),
-						$this->form_validation->set_value('physiMeas'),
-						$this->form_validation->set_value('dateMMR'),
-						$this->form_validation->set_value('physiMMR'),
-						$this->form_validation->set_value('dateHIB1'),
-						$this->form_validation->set_value('physiHIB1'),
-						$this->form_validation->set_value('dateHIB2'),
-						$this->form_validation->set_value('physiHIB2'),
-						$this->form_validation->set_value('dateHIB3'),
-						$this->form_validation->set_value('physiHIB3'),
-						$this->form_validation->set_value('dateHIBBoos'),
-						$this->form_validation->set_value('physiHIBBoos'),
-						$this->form_validation->set_value('dateHepa1'),
-						$this->form_validation->set_value('physiHepa1'),
-						$this->form_validation->set_value('dateHepa2'),
-						$this->form_validation->set_value('physiHepa2'),
-						$this->form_validation->set_value('dateHepa3'),
-						$this->form_validation->set_value('physiHepa3'),
-						$this->form_validation->set_value('dateHepaBoos'),
-						$this->form_validation->set_value('physiHepaBoos'),
-						$this->form_validation->set_value('dateOth'),
-						$this->form_validation->set_value('physiOth'),
-						$this->form_validation->set_value('labDate1'),
-						$this->form_validation->set_value('labDate2'),
-						$this->form_validation->set_value('labDate3'),
-						$this->form_validation->set_value('labDate4'),
-						$this->form_validation->set_value('labDate5'),
-						$this->form_validation->set_value('labDate6'),
-						$this->form_validation->set_value('labDate7'),
-						$this->form_validation->set_value('labDate8'),
-						$this->form_validation->set_value('labDate9'),
-						$this->form_validation->set_value('labDate10'),
-						$this->form_validation->set_value('labTest1'),
-						$this->form_validation->set_value('labTest2'),
-						$this->form_validation->set_value('labTest3'),
-						$this->form_validation->set_value('labTest4'),
-						$this->form_validation->set_value('labTest5'),
-						$this->form_validation->set_value('labTest6'),
-						$this->form_validation->set_value('labTest7'),
-						$this->form_validation->set_value('labTest8'),
-						$this->form_validation->set_value('labTest9'),
-						$this->form_validation->set_value('labTest10'),
-						$this->form_validation->set_value('labResult1'),
-						$this->form_validation->set_value('labResult2'),
-						$this->form_validation->set_value('labResult3'),
-						$this->form_validation->set_value('labResult4'),
-						$this->form_validation->set_value('labResult5'),
-						$this->form_validation->set_value('labResult6'),
-						$this->form_validation->set_value('labResult7'),
-						$this->form_validation->set_value('labResult8'),
-						$this->form_validation->set_value('labResult9'),
-						$this->form_validation->set_value('labResult10'),
-						$this->form_validation->set_value('labAction1'),
-						$this->form_validation->set_value('labAction2'),
-						$this->form_validation->set_value('labAction3'),
-						$this->form_validation->set_value('labAction4'),
-						$this->form_validation->set_value('labAction5'),
-						$this->form_validation->set_value('labAction6'),
-						$this->form_validation->set_value('labAction7'),
-						$this->form_validation->set_value('labAction8'),
-						$this->form_validation->set_value('labAction9'),
-						$this->form_validation->set_value('labAction10'),
-						$this->form_validation->set_value('illDate1'),
-						$this->form_validation->set_value('illDate2'),
-						$this->form_validation->set_value('illDate3'),
-						$this->form_validation->set_value('illDate4'),
-						$this->form_validation->set_value('illDate5'),
-						$this->form_validation->set_value('illDate6'),
-						$this->form_validation->set_value('illDate7'),
-						$this->form_validation->set_value('illDate8'),
-						$this->form_validation->set_value('illDate9'),
-						$this->form_validation->set_value('illDate10'),
-						$this->form_validation->set_value('illAge1'),
-						$this->form_validation->set_value('illAge2'),
-						$this->form_validation->set_value('illAge3'),
-						$this->form_validation->set_value('illAge4'),
-						$this->form_validation->set_value('illAge5'),
-						$this->form_validation->set_value('illAge6'),
-						$this->form_validation->set_value('illAge7'),
-						$this->form_validation->set_value('illAge8'),
-						$this->form_validation->set_value('illAge9'),
-						$this->form_validation->set_value('illAge10'),
-						$this->form_validation->set_value('illName1'),
-						$this->form_validation->set_value('illName2'),
-						$this->form_validation->set_value('illName3'),
-						$this->form_validation->set_value('illName4'),
-						$this->form_validation->set_value('illName5'),
-						$this->form_validation->set_value('illName6'),
-						$this->form_validation->set_value('illName7'),
-						$this->form_validation->set_value('illName8'),
-						$this->form_validation->set_value('illName9'),
-						$this->form_validation->set_value('illName10'),
-						$this->form_validation->set_value('illMed1'),
-						$this->form_validation->set_value('illMed2'),
-						$this->form_validation->set_value('illMed3'),
-						$this->form_validation->set_value('illMed4'),
-						$this->form_validation->set_value('illMed5'),
-						$this->form_validation->set_value('illMed6'),
-						$this->form_validation->set_value('illMed7'),
-						$this->form_validation->set_value('illMed8'),
-						$this->form_validation->set_value('illMed9'),
-						$this->form_validation->set_value('illMed10'),
-						$this->form_validation->set_value('illActive'),
-						$this->form_validation->set_value('illCompli'),
-						$this->form_validation->set_value('illAccident'),
-						$this->form_validation->set_value('medChild'),
-						$this->form_validation->set_value('medTake'),
-						$this->form_validation->set_value('medPhysician'),
-						$this->form_validation->set_value('medReason'),
-						$this->form_validation->set_value('medSeizure'),
-						$this->form_validation->set_value('medChronic'),
-						$this->form_validation->set_value('medAllergic'),
-						$this->form_validation->set_value('medAllergicMed'),
-						$this->form_validation->set_value('dentalHealth'),
-						$this->form_validation->set_value('dentalProgress'),
-						$this->form_validation->set_value('notesReco'),
-						$this->form_validation->set_value('doctor'),
-						$this->form_validation->set_value('licenseNo'),
-						$this->form_validation->set_value('ptrNo'),
-						$this->form_validation->set_value('hospitalClinic')))) 
-					{		
-
-						$this->notification($data['user_id'] = $this->tank_auth->get_user_id());	// success
-						$data['$client_id'] = $this->form_validation->set_value('client_id');
-						$this->load->view("Nurse/nurse_medical", $data);
-						$this->load->view('header_footer/nurse_footer');
-					} 
-				else 
-				{
-					$errors = $this->tank_auth->get_error_message();
-					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
-				}
-			} else {
-				$data['$client_id'] = $this->form_validation->set_value('client_id');
-				$data['client_info'] = $this->clients->get_client_by_id($client_id);	
-				$this->load->view('Forms/nurse_medical', $data);
-				$this->load->view('header_footer/nurse_footer');
-			}
-		}
-	}
 	
 	function before_measurements()
 	{
@@ -5099,7 +4516,8 @@ function unknown_function()
 	}
 //initial submit
 	function initial_medical_submit()
-	{$client_id = $this->input->post('client_id');
+	{
+		$client_id = $this->input->post('client_id');
 		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('bloodP', 'bloodP', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('pulseRate', 'pulseRate', 'trim|required|xss_clean');
@@ -5144,7 +4562,8 @@ function unknown_function()
 	}
 
 	function present_submit()
-	{$client_id = $this->input->post('client_id');
+	{
+		$client_id = $this->input->post('client_id');
 		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('presentApp', 'presentApp', 'trim|xss_clean');
 		$this->form_validation->set_rules('admissionApp', 'admissionApp', 'trim|required|xss_clean');
@@ -5178,7 +4597,8 @@ function unknown_function()
 	}
 
 	function insert_birth_history()
-	{$client_id = $this->input->post('client_id');
+	{
+		$client_id = $this->input->post('client_id');
 		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
 
 
@@ -5937,7 +5357,8 @@ function unknown_function()
 		}
 	}
 	function Admin_Client_reject()
-	{$conference_id = null;
+	{
+		$conference_id = null;
 		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
 
 		if($this->form_validation->run())
@@ -6402,9 +5823,11 @@ function unknown_function()
 			if(!$v->seen)
 				$data['notification_count']++;
 
-		if($data['notification_count'] == 0){
+		if($data['notification_count'] == 0)
+		{
 			$data['notification_count'] = "";
-		}	
+		}
+
 		if ($data['role'] == 1 || $data['role'] == 7 || $data['role'] == 8 || $data['role'] == 9 || $data['role'] == 10)
 		{
 				$this->load->view('header_footer/socialW_header', $data);			
@@ -7664,24 +7087,6 @@ function unknown_function()
 			}
 	}
 
-	function mpdf_trial($client_id)  // no db at thesisdb
-	{
-		//$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
-		
-		//if ($this->form_validation->run()) 
-		//	{
-				//$client_id = $this->form_validation->set_value('client_id');
-				$data['social'] = $this->clients->get_initial_case($client_id);
-
-				$html = $this->load->view('mpdf_initial_social', $data, true); // render the view into HTML
-     
-			    $this->load->library('m_pdf');
-			    $m_pdf = $this->m_pdf->load();
-			    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
-			    $m_pdf->WriteHTML($html); // write the HTML into the PDF
-			    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
-			//}
-	}
 
 	function blank()
 	{

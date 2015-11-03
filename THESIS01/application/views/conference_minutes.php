@@ -141,9 +141,10 @@ $age = ageCalculator($birthday).'(admit date, no birthday)';
                             <td>
                               
                               <div class="col s11">1.<input type="text" name="point[]" value="" id="point" style="width:98%;" /></div> 
-                              <div class="col s2 left"><button type="button"  value="view" class="btn  waves-effect green z-depth-2" onClick="sub_topic('1');" >Add Sub point</button></div>
+                              <div class="col s1 left"><button type="button"  value="view" class="btn  waves-effect green z-depth-2" onClick="sub_topic('1');" >Add Sub point</button></div>
+                              <div class="col s1 left"><button type="button"  id="remove" value="view" class="btn  waves-effect green z-depth-2" onClick="">Remove</button></div>
                               <div class="col s10" id="sub_point_1">
-                                <input type="text" name="sub_point_1[]" value="" id="point" style="width:80%;" class="right" />
+                                <input type="text" name="sub_point_1[]" value="" id="sub_point" style="width:80%;" class="right" />
                               </div>
                             </td>
                           </tr>
@@ -171,8 +172,7 @@ $age = ageCalculator($birthday).'(admit date, no birthday)';
     var row   = tableRef.insertRow(tableRef.rows.length);
     var td1 = row.insertCell(0);
     main = main + 1;
-    //td1.innerHTML = "<div class=\"col s11\">"+main+"<input type=\"text\" name=\"point[]\" value=\"\" id=\"point\" style=\"width:98%;\" /></div><div class=\"col s2 left\"><button type=\"button\" value=\"view\" class=\"btn  waves-effect   green z-depth-2\" onClick=\"sub_topic();\">Add Sub point</button></div><div id=\"sub_point\" class=\"col s10\"><input type=\"text\" name=\"point[]\" value=\"\" id=\"point\" style=\"width:80%;\" class=\"right\"  /></div>";
-    td1.innerHTML = "<td><div class=\"col s11\">"+main+".<input type=\"text\" name=\"point[]\" value=\"\" id=\"point\" style=\"width:98%;\" /></div><div class=\"col s2 left\"><button type=\"button\"  value=\"view\" class=\"btn  waves-effect green z-depth-2\" onClick=\"sub_topic("+(main)+");\" >Add Sub point</button></div><div class=\"col s10\" id=\"sub_point_"+(main)+"\"><input type=\"text\" name=\"sub_point_"+main+"[]\" value=\"\" id=\"point\" style=\"width:80%;\" class=\"right\" /></div></td>";
+    td1.innerHTML = "<td><div class=\"col s11\">"+main+".<input type=\"text\" name=\"point[]\" value=\"\" id=\"point\" style=\"width:98%;\" /></div><div class=\"col s2 left\"><button type=\"button\"  value=\"view\" class=\"btn  waves-effect green z-depth-2\" onClick=\"sub_topic("+(main)+");\" >Add Sub point</button></div><div class=\"col s10\" id=\"sub_point_"+(main)+"\"><input type=\"text\"  name=\"sub_point_"+main+"[]\" value=\"\" id=\"sub_point\" style=\"width:80%;\" class=\"right\" /></div></td>";
     row.appendChild(td1);
  
   }
@@ -182,9 +182,25 @@ $age = ageCalculator($birthday).'(admit date, no birthday)';
     var sub = document.getElementById('sub_point_'+divName);
 
     var dummy = document.createElement('div');
-    dummy.innerHTML = "<input type=\"text\" name=\"sub_point_"+main+"[]\" value=\"\" id=\"point\" style=\"width:80%;\" class=\"right\" />";
+    dummy.innerHTML = "<input type=\"text\" name=\"sub_point_"+main+"[]\" value=\"\" id=\"sub_point\" style=\"width:80%;\" class=\"right\" />";
 
     sub.appendChild(dummy);
 
   }
+
+  function remove(divName)
+  {
+    //document.getElementById('sub_point_'+divName);.remove('div');
+
+     
+  }
+
+
+    $(document).ready(function()
+      {
+        $("#remove").click(function()
+        {
+          $("input#sub_point:first").remove();
+        });
+      });
 </script>
