@@ -1,52 +1,51 @@
-<?php foreach($founder_details as $row_info) 
-      {
-          $created = $row_info->created;
-          $client_id      = $row_info->client_id;
-          $fname      = $row_info->client_fname;
-          $mname      = $row_info->client_mname;
-          $lname      = $row_info->client_lname;
-          $nickname   = $row_info->nickname;
-          $Civil      = $row_info->civil_status;
-          if($row_info->gender == '1'){$gender= 'Male';}
-          elseif($row_info->gender == '2'){$gender = 'Female';}
-          $religion       = $row_info->religion;
-          $birthday       = $row_info->birthday;
-          $Birthplace     = $row_info->birthplace;
-          $dorm_id        = $row_info->dorm_id;
-          $sw_id          = $row_info->sw_id;
-          $Birthday     = $row_info->birthday;
-          $admitDate    = $row_info->created;
-          $sector     = $row_info->client_sector;
-          if($row_info->baptized == '1'){$baptized = 'yes';}
-          elseif($row_info->baptized == '0'){$baptized = 'no';}
-          elseif($row_info->baptized == '2'){$baptized = 'unknown';}
-          $nationality = $row_info->nationality;
-          $educ_attained = $row_info->educ_attained;
+<?php 
+$created = $founder_details[0]->created;
+$client_id      = $founder_details[0]->client_id;
+$fname      = $founder_details[0]->client_fname;
+$mname      = $founder_details[0]->client_mname;
+$lname      = $founder_details[0]->client_lname;
+$nickname   = $founder_details[0]->nickname;
+$Civil      = $founder_details[0]->civil_status;
+if($founder_details[0]->gender == '1'){$gender= 'Male';}
+elseif($founder_details[0]->gender == '2'){$gender = 'Female';}
+$religion       = $founder_details[0]->religion;
+$birthday       = $founder_details[0]->birthday;
+$Birthplace     = $founder_details[0]->birthplace;
+$dorm_id        = $founder_details[0]->dorm_id;
+$sw_id          = $founder_details[0]->sw_id;
+$Birthday     = $founder_details[0]->birthday;
+$admitDate    = $founder_details[0]->created;
+$sector     = $founder_details[0]->client_sector;
+if($founder_details[0]->baptized == '1'){$baptized = 'yes';}
+elseif($founder_details[0]->baptized == '0'){$baptized = 'no';}
+elseif($founder_details[0]->baptized == '2'){$baptized = 'unknown';}
+$nationality = $founder_details[0]->nationality;
+$educ_attained = $founder_details[0]->educ_attained;
+$school_attended = $founder_details[0]->school_attended;
+
+$emergency_name = $founder_details[0]->emergency_name;
+$emergency_add = $founder_details[0]->emergency_add;
+$emergency_contact = $founder_details[0]->emergency_contact;
+$id_presented = $founder_details[0]->id_presented;
+$health_history = $founder_details[0]->health_history;
+
+$sw_name = $founder_details[0]->first_name." ".$founder_details[0]->last_name;
+
+$problem = $founder_details[0]->problem;
+$intake_description = $founder_details[0]->intake_desc;
+
+$founder_name = $founder_details[0]->founder_name;
+$found_age = $founder_details[0]->founder_age;
+$found_gender = $founder_details[0]->founder_gender;
+$found_address = $founder_details[0]->founder_address;
+$found_contact = $founder_details[0]->founder_contact;
+$found_where = $founder_details[0]->founder_where;
+$found_when = $founder_details[0]->founder_when;
 
 
-          $emergency_name = $row_info->emergency_name;
-          $emergency_add = $row_info->emergency_add;
-          $emergency_contact = $row_info->emergency_contact;
-          $id_presented = $row_info->id_presented;
-          $health_history = $row_info->health_history;
+$admission_type = $founder_details[0]->admission_type;
+$status = $founder_details[0]->client_status;
 
-          $sw_name = $row_info->first_name." ".$row_info->last_name;
-          
-          $problem = $row_info->problem;
-          $intake_description = $row_info->intake_desc;
-         
-          $founder_name = $row_info->founder_name;
-          $found_age = $row_info->founder_age;
-          $found_gender = $row_info->founder_gender;
-          $found_address = $row_info->founder_address;
-          $found_contact = $row_info->founder_contact;
-          $found_where = $row_info->founder_where;
-          $found_when = $row_info->founder_when;
-          
-
-          $admission_type = $row_info->admission_type;
-          $status = $row_info->client_status;
-      }
 
       function ageCalculator($birthday){
   if(!empty($birthday)){
@@ -119,6 +118,8 @@ $age = ageCalculator($birthday);
                              <label >Place of Birth:  <?php echo $Birthplace; ?></label>
                             <br>
                              <label >Highest Educational Attainment:  <?php echo $educ_attained; ?></label>
+                            <br>
+                            <label >School Attended:  <?php echo $school_attended; ?></label>
                              <br>
                              <label >Contact person in case of emergency:  <?php echo $emergency_name; ?></label>
                              <br>
@@ -131,18 +132,13 @@ $age = ageCalculator($birthday);
                            </div>
                          </div>
                          <h5 class="divider black"></h5>
-                        <?php 
-                        if($family != null)
-                        { ?>
-   
-
-                        <label><b>FAMILY BACKGROUND </b></label>
-                         <br>
-                          <table class="Table bordered centered">
+                        <?php if($family != null){ ?>
+                        <label><b>FAMILY BACKGROUND</b></label>
+                        <br>
+                        <table class="Table bordered centered">
                             <thead>
                               <th>Name</th>
-                              <th>Relation-ship to Client</th>
-                              <th>Date of Birth</th>
+                              <th>Relationship to Client</th>
                               <th>Age</th>
                               <th>Civil Status</th>
                               <th>Educational Attainment</th>
@@ -150,18 +146,21 @@ $age = ageCalculator($birthday);
                               <th>Address/Whereabouts</th>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
+                              <?php foreach($family as $member){ ?>
+                                <tr>
+                                  <td><?php echo $member->name; ?></td>
+                                  <td><?php echo $member->relationship; ?></td>
+                                  <td><?php echo $member->age; ?></td>
+                                  <td><?php echo $member->civil_status; ?></td>
+                                  <td><?php echo $member->educ_attained; ?></td>
+                                  <td><?php echo $member->occupation; ?></td>
+                                  <td><?php echo $member->address; ?></td>
+                                </tr>
+                              <?php }?>
                             </tbody>
-                          </table>
+                        </table>
+                        
+                      <?php } ?>
                          <br>
                          <h5 class="divider black"></h5>
                         <?php } ?>
@@ -182,12 +181,6 @@ $age = ageCalculator($birthday);
                           <label>When was the client found?: <?php echo date('m/d/Y', strtotime($found_when)); ?></label>
                           <br>
                           <h5 class="divider black"></h5>
-
-                         <label><b>PROBLEM PRESENTED (Immediate cause of client's request for  help )</b></label>
-
-                         <p><?php echo $problem; ?>
-                         </p>
-                         <br>
 
                          <label><b>Description of client during interview</b></label>
                          <p><?php echo $intake_description; ?>

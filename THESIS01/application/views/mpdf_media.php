@@ -1,34 +1,33 @@
-<?php foreach($media as $row_info) 
-      {
-          $client_id      = $row_info->intake_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $nickname       = $row_info->nickname;
+<?php 
+$client_id      = $media[0]->intake_id;
+$fname          = $media[0]->client_fname;
+$mname          = $media[0]->client_mname;
+$lname          = $media[0]->client_lname;
+$nickname       = $media[0]->nickname;
 
-          $Birthplace     = $row_info->birthplace;
-          $Birthday       = date('F d, Y', strtotime($row_info->birthday));
-          $weight         = $row_info->weight;
-          $height         = $row_info->height;
-          $skin           = $row_info->skin;
-          $body_built     = $row_info->body_built;
-          $dis_marks      = $row_info->dis_marks;
-          $health_stat    = $row_info->health_stat;
-          $biological_mom = $row_info->biological_mom;
-          $last_address   = $row_info->last_address;
-          $biological_dad = $row_info->biological_dad;
-          $found_date     = $row_info->found_date;
-          $found_place    = $row_info->found_place;
-          $found_person   = $row_info->found_person;
-          $found_per_add  = $row_info->found_per_add;
-          $tv_radio       = $row_info->tv_radio;
-          $aired_time     = $row_info->aired_time;
-          $aired_date     = $row_info->aired_date;
-          $announcer      = $row_info->announcer;
-          $witness_1      = $row_info->witness_1;
-          $witness_2      = $row_info->witness_2;
-          $witness_3      = $row_info->witness_3;
-      }
+$Birthplace     = $media[0]->birthplace;
+$Birthday       = date('F d, Y', strtotime($media[0]->birthday));
+$weight         = $media[0]->weight;
+$height         = $media[0]->height;
+$skin           = $media[0]->skin;
+$body_built     = $media[0]->body_built;
+$dis_marks      = $media[0]->dis_marks;
+$health_stat    = $media[0]->health_stat;
+$biological_mom = $media[0]->biological_mom;
+$last_address   = $media[0]->last_address;
+$biological_dad = $media[0]->biological_dad;
+$found_date     = $media[0]->found_date;
+$found_place    = $media[0]->found_place;
+$found_person   = $media[0]->found_person;
+$found_per_add  = $media[0]->found_per_add;
+$tv_radio       = $media[0]->tv_radio;
+$aired_time     = $media[0]->aired_time;
+$aired_date     = $media[0]->aired_date;
+$announcer      = $media[0]->announcer;
+$witness_1      = $media[0]->witness_1;
+$witness_2      = $media[0]->witness_2;
+$witness_3      = $media[0]->witness_3;
+
 
 $html='  
 <main >

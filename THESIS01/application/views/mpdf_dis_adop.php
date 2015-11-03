@@ -43,13 +43,13 @@ $html='
       <div class="form-group">
         <label>Name of the Child: <u>'.$fname." ".$mname." ".$lname.'</u> </label><br>
         <label>Date of Birth/Gender:<u>'.$birthday.' / '.$gender .'</u> </label><br>
-        <label>Age upon Discharge: <u> Computed dapat</u> </label><br>
+        <label>Age upon Discharge: <u>***********</u> </label><br>
         <label>Place of Birth: <u>'.$birthplace .'</u></label><br>
         <label>Birth Status: <u>'.$birth_stat.'</u> </label><br>
         <label>Date admitted in HSJ: <u>'.$created.'</u> </label><br>
         <label>Case Category: <u>'. $case .'</u> </label><br>
         <label>Dormitory: <u>'.$dorm.'</u> </label><br>
-        <label>Number of months/years of Stay in HSJ: <u>Computed dapat</u></label><br>
+        <label>Number of months/years of Stay in HSJ: <u>***********</u></label><br>
         <label>Adoptive Father: <u>'.$adop_father.'</u></label><br>
         <label>Adoptive Mother: <u>'.$adop_mother.'</u></label><br>
       </div>
@@ -75,12 +75,12 @@ $html='
             <label></label><br>
             <label>Recommending Approval:</label><br>
             <label></label><br>
-            <label><u></u></label><br>
+            <label><u>***********</u></label><br>
             <label>Head, Social Services</label><br>
             <label></label><br>
             <label>Approved:</label><br>
             <label></label><br>
-            <label><u></u></label><br>
+            <label><u>***********</u></label><br>
             <label>Administrator</label><br>
           </div>
           <div id="right_col">  
@@ -98,7 +98,7 @@ $html='
             <label></label><br>
             <label></label><br>
             <label></label><br>
-            <label><u></u></label><br>
+            <label><u>***********</u></label><br>
             <label>Head Nurse, Nursery Section</label><br>
             <label></label><br>
             <label></label><br>

@@ -1,25 +1,24 @@
-<?php foreach($inter_cc as $row_info) 
-      {
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $age            = $row_info->age;
-          $birthplace     = $row_info->birthplace;
-          $birthday       = $row_info->birthday;
-          $nationality    = $row_info->nationality;
-          $gender         = $row_info->gender;
-          $case           = $row_info->client_sector;
-          $created        = date('F-d-Y', strtotime($row_info->created));
-          $disability     = $row_info->disability;
-          $signi_info     = $row_info->signi_info;
+<?php
+$client_id      = $inter_cc[0]->client_id;
+$fname          = $inter_cc[0]->client_fname;
+$mname          = $inter_cc[0]->client_mname;
+$lname          = $inter_cc[0]->client_lname;
+$age            = $inter_cc[0]->age;
+$birthplace     = $inter_cc[0]->birthplace;
+$birthday       = $inter_cc[0]->birthday;
+$nationality    = $inter_cc[0]->nationality;
+$gender         = $inter_cc[0]->gender;
+$case           = $inter_cc[0]->client_sector;
+$created        = date('F-d-Y', strtotime($inter_cc[0]->created));
+$disability     = $inter_cc[0]->disability;
+$signi_info     = $inter_cc[0]->signi_info;
 
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-          $role           = $row_info->role;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      if ($role == 7){$role = "Older Person";} elseif($role == 8){$role = "Persons with Special Needs";} elseif($role == 9){$role = "Crisis Intervention";} elseif($role == 10){$role = "Child and Youth";}
+$first_name     = $inter_cc[0]->first_name;
+$last_name      = $inter_cc[0]->last_name;
+$role           = $inter_cc[0]->role;
+
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+if ($role == 7){$role = "Older Person";} elseif($role == 8){$role = "Persons with Special Needs";} elseif($role == 9){$role = "Crisis Intervention";} elseif($role == 10){$role = "Child and Youth";}
 
 
 $html='  

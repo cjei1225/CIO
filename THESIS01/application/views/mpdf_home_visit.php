@@ -1,23 +1,22 @@
-<?php foreach($home_visit as $row_info) 
-      {
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $response       = $row_info->response;
-          $visit_date     = $row_info->visit_date;
-          $visit_place    = $row_info->visit_place;
-          $objective      = $row_info->objective;
-          $narration      = $row_info->narration;
-          $assessment     = $row_info->assessment;
-          $action_plan    = $row_info->action_plan;
+<?php 
+$client_id      = $home_visit[0]->client_id;
+$fname          = $home_visit[0]->client_fname;
+$mname          = $home_visit[0]->client_mname;
+$lname          = $home_visit[0]->client_lname;
+$response       = $home_visit[0]->response;
+$visit_date     = $home_visit[0]->visit_date;
+$visit_place    = $home_visit[0]->visit_place;
+$objective      = $home_visit[0]->objective;
+$narration      = $home_visit[0]->narration;
+$assessment     = $home_visit[0]->assessment;
+$action_plan    = $home_visit[0]->action_plan;
 
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-          $role           = $row_info->role;
-      }
-      if ($role == 7){$role = "Older Person";} elseif($role == 8){$role = "Persons with Special Needs";} elseif($role == 9){$role = "Crisis Intervention";} elseif($role == 10){$role = "Child and Youth";}
-  
+$first_name     = $home_visit[0]->first_name;
+$last_name      = $home_visit[0]->last_name;
+$role           = $home_visit[0]->role;
+
+if ($role == 7){$role = "Older Person";} elseif($role == 8){$role = "Persons with Special Needs";} elseif($role == 9){$role = "Crisis Intervention";} elseif($role == 10){$role = "Child and Youth";}
+
 
 $html='  
 <main >

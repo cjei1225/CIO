@@ -1,52 +1,51 @@
-<?php foreach($surrender_details as $row_info) 
-      {
-          $created = $row_info->created;
-          $client_id      = $row_info->client_id;
-          $fname      = $row_info->client_fname;
-          $mname      = $row_info->client_mname;
-          $lname      = $row_info->client_lname;
-          $nickname   = $row_info->nickname;
-          $Civil      = $row_info->civil_status;
-          if($row_info->gender == '1'){$gender= 'Male';}
-          elseif($row_info->gender == '2'){$gender = 'Female';}
-          $religion       = $row_info->religion;
-          $birthday       = $row_info->birthday;
-          $Birthplace     = $row_info->birthplace;
-          $dorm_id        = $row_info->dorm_id;
-          $sw_id          = $row_info->sw_id;
-          $Birthday     = $row_info->birthday;
-          $admitDate    = $row_info->created;
-          $sector     = $row_info->client_sector;
-          if($row_info->baptized == '1'){$baptized = 'yes';}
-          elseif($row_info->baptized == '0'){$baptized = 'no';}
-          elseif($row_info->baptized == '2'){$baptized = 'unknown';}
-          $nationality = $row_info->nationality;
-          $educ_attained = $row_info->educ_attained;
+<?php 
+$created = $surrender_details[0]->created;
+$client_id      = $surrender_details[0]->client_id;
+$fname      = $surrender_details[0]->client_fname;
+$mname      = $surrender_details[0]->client_mname;
+$lname      = $surrender_details[0]->client_lname;
+$nickname   = $surrender_details[0]->nickname;
+$Civil      = $surrender_details[0]->civil_status;
+if($surrender_details[0]->gender == '1'){$gender= 'Male';}
+elseif($surrender_details[0]->gender == '2'){$gender = 'Female';}
+$religion       = $surrender_details[0]->religion;
+$birthday       = $surrender_details[0]->birthday;
+$Birthplace     = $surrender_details[0]->birthplace;
+$dorm_id        = $surrender_details[0]->dorm_id;
+$sw_id          = $surrender_details[0]->sw_id;
+$Birthday     = $surrender_details[0]->birthday;
+$admitDate    = $surrender_details[0]->created;
+$sector     = $surrender_details[0]->client_sector;
+if($surrender_details[0]->baptized == '1'){$baptized = 'yes';}
+elseif($surrender_details[0]->baptized == '0'){$baptized = 'no';}
+elseif($surrender_details[0]->baptized == '2'){$baptized = 'unknown';}
+$nationality = $surrender_details[0]->nationality;
+$educ_attained = $surrender_details[0]->educ_attained;
+$school_attended = $surrender_details[0]->school_attended;
+
+$emergency_name = $surrender_details[0]->emergency_name;
+$emergency_add = $surrender_details[0]->emergency_add;
+$emergency_contact = $surrender_details[0]->emergency_contact;
+$id_presented = $surrender_details[0]->id_presented;
+$health_history = $surrender_details[0]->health_history;
+
+$sw_name = $surrender_details[0]->first_name." ".$surrender_details[0]->last_name;
+
+$problem = $surrender_details[0]->problem;
+$intake_description = $surrender_details[0]->intake_desc;
+
+$surrenderer_name = $surrender_details[0]->surrender_name;      
+$surrenderer_rel = $surrender_details[0]->surrender_rel;      
+$surrenderer_age = $surrender_details[0]->surrender_age;      
+$surrenderer_gender = $surrender_details[0]->surrender_gender;      
+$surrenderer_add = $surrender_details[0]->surrender_address;      
+$surrenderer_contact = $surrender_details[0]->surrender_contact;      
+$surrenderer_reason = $surrender_details[0]->surrender_reason;      
 
 
-          $emergency_name = $row_info->emergency_name;
-          $emergency_add = $row_info->emergency_add;
-          $emergency_contact = $row_info->emergency_contact;
-          $id_presented = $row_info->id_presented;
-          $health_history = $row_info->health_history;
-
-          $sw_name = $row_info->first_name." ".$row_info->last_name;
-          
-          $problem = $row_info->problem;
-          $intake_description = $row_info->intake_desc;
-
-          $surrenderer_name = $row_info->surrender_name;      
-          $surrenderer_rel = $row_info->surrender_rel;      
-          $surrenderer_age = $row_info->surrender_age;      
-          $surrenderer_gender = $row_info->surrender_gender;      
-          $surrenderer_add = $row_info->surrender_address;      
-          $surrenderer_contact = $row_info->surrender_contact;      
-          $surrenderer_reason = $row_info->surrender_reason;      
-          
-
-          $admission_type = $row_info->admission_type;
-          $status = $row_info->client_status;
-      }
+$admission_type = $surrender_details[0]->admission_type;
+$status = $surrender_details[0]->client_status;
+      
 
       function ageCalculator($birthday){
   if(!empty($birthday)){
@@ -113,6 +112,8 @@ $age = ageCalculator($birthday);
                       <label >Place of Birth:  <?php echo $Birthplace; ?></label>
                       <br>
                       <label >Highest Educational Attainment:  <?php echo $educ_attained; ?></label>
+                      <br>
+                      <label >School Attended:  <?php echo $school_attended; ?></label>
                       <br>
                       <label >Contact person in case of emergency:  <?php echo $emergency_name; ?></label>
                       <br>

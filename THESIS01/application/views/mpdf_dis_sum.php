@@ -1,27 +1,26 @@
-<?php foreach($dis_sum as $row_info) 
-      {
-          $client_id      = $row_info->intake_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $age            = $row_info->age;
-          $birthplace     = $row_info->birthplace;
-          $birthday       = $row_info->birthday;
-          $birth_stat     = $row_info->birth_stat;
-          $gender         = $row_info->gender;
-          $case           = $row_info->client_sector;
-          $created        = $row_info->created;
-          $discharge_to   = $row_info->discharge_to;
-          $discharge_reason = $row_info->discharge_reason;
-          $dorm           = $row_info->d_name;
-          $case_summary   = $row_info->case_summary;
-          $post_place_stat = $row_info->post_place_stat;
+<?php 
+$client_id      = $dis_sum[0]->intake_id;
+$fname          = $dis_sum[0]->client_fname;
+$mname          = $dis_sum[0]->client_mname;
+$lname          = $dis_sum[0]->client_lname;
+$age            = $dis_sum[0]->age;
+$birthplace     = $dis_sum[0]->birthplace;
+$birthday       = $dis_sum[0]->birthday;
+$birth_stat     = $dis_sum[0]->birth_stat;
+$gender         = $dis_sum[0]->gender;
+$case           = $dis_sum[0]->client_sector;
+$created        = $dis_sum[0]->created;
+$discharge_to   = $dis_sum[0]->discharge_to;
+$discharge_reason = $dis_sum[0]->discharge_reason;
+$dorm           = $dis_sum[0]->d_name;
+$case_summary   = $dis_sum[0]->case_summary;
+$post_place_stat = $dis_sum[0]->post_place_stat;
 
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
+$first_name     = $dis_sum[0]->first_name;
+$last_name      = $dis_sum[0]->last_name;
+
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+if ($case == 1){$case = "Child and Youth";} elseif($case == 2){$case = "Older Person";}elseif($case == 3){$case = "Special Needs";}elseif($case == 4){$case = "Crisis Situation";}
 
 $html='  
 <main >

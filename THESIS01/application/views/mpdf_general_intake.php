@@ -1,52 +1,51 @@
-<?php foreach($client_info as $row_info) 
-      {
-          $created        = date('F-d-Y', strtotime($row_info->created));
-          $client_id      = $row_info->client_id;
-          $fname          = $row_info->client_fname;
-          $mname          = $row_info->client_mname;
-          $lname          = $row_info->client_lname;
-          $nickname       = $row_info->nickname;
-          $Civil          = $row_info->civil_status;
-          $age            = $row_info->age;
-          $gender         = $row_info->gender;
-          $religion       = $row_info->religion;
-          $Birthplace     = $row_info->birthplace;
-          $dorm_id        = $row_info->dorm_id;
-          $sw_id          = $row_info->sw_id;
-          $Birthday       = $row_info->birthday;
-          $admitDate      = $row_info->created;
-          $sector         = $row_info->client_sector;
-          $baptized       = $row_info->baptized;
-          $nationality    = $row_info->nationality;
-          $present_add    = $row_info->present_add;
-          $contact_num    = $row_info->contact_num;
-          $permanent_add  = $row_info->permanent_add;
-          $educ_attained  = $row_info->educ_attained;
-          $emergency_name = $row_info->emergency_name;
-          $emergency_add  = $row_info->emergency_add;
-          $emergency_contact = $row_info->emergency_contact;
-          $referral_source = $row_info->referral_source;
-          $source_add     = $row_info->source_add;
-          $source_contact = $row_info->source_contact;
-          $id_presented   = $row_info->id_presented;
+<?php 
+$created        = date('F-d-Y', strtotime($client_info[0]->created));
+$client_id      = $client_info[0]->client_id;
+$fname          = $client_info[0]->client_fname;
+$mname          = $client_info[0]->client_mname;
+$lname          = $client_info[0]->client_lname;
+$nickname       = $client_info[0]->nickname;
+$Civil          = $client_info[0]->civil_status;
+$age            = $client_info[0]->age;
+$gender         = $client_info[0]->gender;
+$religion       = $client_info[0]->religion;
+$Birthplace     = $client_info[0]->birthplace;
+$dorm_id        = $client_info[0]->dorm_id;
+$sw_id          = $client_info[0]->sw_id;
+$Birthday       = $client_info[0]->birthday;
+$admitDate      = $client_info[0]->created;
+$sector         = $client_info[0]->client_sector;
+$baptized       = $client_info[0]->baptized;
+$nationality    = $client_info[0]->nationality;
+$present_add    = $client_info[0]->present_add;
+$contact_num    = $client_info[0]->contact_num;
+$permanent_add  = $client_info[0]->permanent_add;
+$educ_attained  = $client_info[0]->educ_attained;
+$emergency_name = $client_info[0]->emergency_name;
+$emergency_add  = $client_info[0]->emergency_add;
+$emergency_contact = $client_info[0]->emergency_contact;
+$referral_source = $client_info[0]->referral_source;
+$source_add     = $client_info[0]->source_add;
+$source_contact = $client_info[0]->source_contact;
+$id_presented   = $client_info[0]->id_presented;
 
-          $problem        = $row_info->problem;
-          $agent_name     = $row_info->agent_name;
-          $agent_reason   = $row_info->agent_reason;
-          $agent_service  = $row_info->agent_service;
-          $problem_history = $row_info->problem_history;
-          $intake_description = $row_info->intake_desc;
-          $health_history = $row_info->health_history;
-          $family_bg      = $row_info->family_bg;
-          $assess_problem = $row_info->assess_problem;
-          $assess_needs   = $row_info->assess_needs;
-          $assess_motiv   = $row_info->assess_motiv;
-          $assess_resource= $row_info->assess_resource;
-          $first_name     = $row_info->first_name;
-          $last_name      = $row_info->last_name;
-      }
-      if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
-      if ($baptized == 1){$baptized = "Yes";} elseif($baptized == 0){$baptized = "No";}
+$problem        = $client_info[0]->problem;
+$agent_name     = $client_info[0]->agent_name;
+$agent_reason   = $client_info[0]->agent_reason;
+$agent_service  = $client_info[0]->agent_service;
+$problem_history = $client_info[0]->problem_history;
+$intake_description = $client_info[0]->intake_desc;
+$health_history = $client_info[0]->health_history;
+$family_bg      = $client_info[0]->family_bg;
+$assess_problem = $client_info[0]->assess_problem;
+$assess_needs   = $client_info[0]->assess_needs;
+$assess_motiv   = $client_info[0]->assess_motiv;
+$assess_resource= $client_info[0]->assess_resource;
+$first_name     = $client_info[0]->first_name;
+$last_name      = $client_info[0]->last_name;
+
+if ($gender == 1){$gender = "Male";} elseif($gender == 2){$gender = "Female";}
+if ($baptized == 1){$baptized = "Yes";} elseif($baptized == 0){$baptized = "No";}
 
 $html='  
 <main >
