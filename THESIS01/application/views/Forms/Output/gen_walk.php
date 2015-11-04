@@ -160,7 +160,7 @@ $age = ageCalculator($birthday);
                             </tbody>
                         </table>
                         
-                      <?php } ?>
+                      
                          <br>
                          <h5 class="divider black"></h5>
                         <?php } ?>

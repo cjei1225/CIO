@@ -135,18 +135,13 @@ $age = ageCalculator($birthday);
                                 echo form_hidden('document_type', $document_type);
                                 ?>
                                 <!-- <?php echo form_upload('userfile'); ?> -->
-                                <div class="col s3">
+                                <div class="col s3" style="height:5%;">
                                     <input class="file-path validate" type="hidden"/>
                                     <div class="btn">
-                                        <span> File </span>
+                                        <span> Picture </span>
                                         <input type='file' name="userfile"/>
                                     </div>
                                 </div>
-
-                                <div class="col s1">&nbsp &nbsp &nbsp
-                                </div>
-
-                                  <?php echo form_hidden('file_ploc', 'lol'); ?>
 
                                 <div class="col s3">
                                     <button class="btn  waves-effect btn-md  blue z-depth-2" type="submit" name="action">Save</button>
