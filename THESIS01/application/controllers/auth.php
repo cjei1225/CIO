@@ -603,7 +603,8 @@ class Auth extends CI_Controller
 	}
 
 	function client_info_ref()
-	{	$data['client_id'] = $this->input->post('client_id');
+	{	
+		$data['client_id'] = $this->input->post('client_id');
 		$data["admission_type"] = $this->input->post('admission_type');
 
 		if (!$this->tank_auth->is_logged_in()) {									// logged in
@@ -1041,9 +1042,9 @@ class Auth extends CI_Controller
 					//print_r($data['agency_details']);
 					$this->load->view('Forms/Output/intake_refer', $data);
 				}
-				elseif($admission_type == "4")
+				elseif($admission_type == "4")//self
 				{
-					$data['agency_details'] = $this->clients->get_client_by_id($client_id);
+					$data['self_details'] = $this->clients->get_client_by_id($client_id);
 					$this->load->view('Forms/Output/intake_self', $data);
 				}
 				$this->load->view('header_footer/socialW_footer');
@@ -1088,9 +1089,9 @@ class Auth extends CI_Controller
 				$this->load->view('Forms/Output/gen_agency', $data);
 				$this->load->view('header_footer/socialW_footer');
 				}
-				elseif($admission_type == "4") //referral
+				elseif($admission_type == "4") //self
 				{
-				$data['agency_details'] = $this->clients->get_client_by_id($client_id);
+				$data['self_details'] = $this->clients->get_client_by_id($client_id);
 				
 				$this->load->view('Forms/Output/gen_self', $data);
 				$this->load->view('header_footer/socialW_footer');
@@ -1105,8 +1106,6 @@ class Auth extends CI_Controller
 
 
 // End Admission - new
-
-
 
  //Admission - old
 
@@ -6789,6 +6788,129 @@ class Auth extends CI_Controller
 			{
 				$client_id = $this->form_validation->set_value('client_id');
 				$data['client_info'] = $this->clients->get_client_by_id($client_id);
+				$admission_type = $this->clients->get_client_details($client_id)->admission_type;
+
+				if($admission_type=="2")//surrender
+				{
+					$data['surrender_details'] = $this->clients->get_sur_det($client_id);
+					$data['family'] = $this->clients->get_family($client_id);
+					$html = $this->load->view('mpdf_general_surrender', $data, true); // render the view into HTML
+			     
+				    $this->load->library('m_pdf');
+				    $m_pdf = $this->m_pdf->load();
+				    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+				    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+				    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+				}
+				elseif($admission_type == "3")//walk-in
+				{
+					$data['founder_details'] = $this->clients->get_found_det($client_id);
+
+					$html = $this->load->view('mpdf_general_walk', $data, true); // render the view into HTML
+			     
+				    $this->load->library('m_pdf');
+				    $m_pdf = $this->m_pdf->load();
+				    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+				    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+				    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+				}
+				elseif($admission_type == "1") //referral
+				{
+					$data['agency_details'] = $this->clients->get_agen_det($client_id);
+
+					$html = $this->load->view('mpdf_general_agency', $data, true); // render the view into HTML
+			     
+				    $this->load->library('m_pdf');
+				    $m_pdf = $this->m_pdf->load();
+				    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+				    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+				    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+				}
+				elseif($admission_type == "4") //self
+				{
+				
+					$data['self_details'] = $this->clients->get_client_by_id($client_id);
+
+					$html = $this->load->view('mpdf_general_intake', $data, true); // render the view into HTML
+			     
+				    $this->load->library('m_pdf');
+				    $m_pdf = $this->m_pdf->load();
+				    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+				    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+				    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+				}
+				
+			}
+	}
+
+	function mpdf_intake_ref()
+	{
+		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
+		
+		if ($this->form_validation->run()) 
+			{
+				$client_id = $this->form_validation->set_value('client_id');
+				$data['agency_details'] = $this->clients->get_agen_det($client_id);
+
+				$html = $this->load->view('mpdf_general_agency', $data, true); // render the view into HTML
+		     
+			    $this->load->library('m_pdf');
+			    $m_pdf = $this->m_pdf->load();
+			    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+			    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+			    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+
+			}
+	}
+
+	function mpdf_intake_sur()
+	{
+		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
+		
+		if ($this->form_validation->run()) 
+			{
+				$client_id = $this->form_validation->set_value('client_id');
+				$data['surrender_details'] = $this->clients->get_sur_det($client_id);
+
+				$html = $this->load->view('mpdf_general_surrender', $data, true); // render the view into HTML
+		     
+			    $this->load->library('m_pdf');
+			    $m_pdf = $this->m_pdf->load();
+			    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+			    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+			    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+
+			}
+	}
+
+	function mpdf_intake_walk()
+	{
+		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
+		
+		if ($this->form_validation->run()) 
+			{
+				$client_id = $this->form_validation->set_value('client_id');
+				$data['founder_details'] = $this->clients->get_found_det($client_id);
+
+				$html = $this->load->view('mpdf_general_walk', $data, true); // render the view into HTML
+		     
+			    $this->load->library('m_pdf');
+			    $m_pdf = $this->m_pdf->load();
+			    $m_pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date(DATE_RFC822)); // Add a footer for good measure <img src="https://davidsimpson.me/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley">
+			    $m_pdf->WriteHTML($html); // write the HTML into the PDF
+			    $m_pdf->Output($pdfFilePath, 'F'); // save to file because we can
+
+			}
+	}
+
+	function mpdf_intake_self()
+	{
+		$this->form_validation->set_rules('client_id', 'client_id', 'trim|required|xss_clean');
+		
+		if ($this->form_validation->run()) 
+			{
+				$client_id = $this->form_validation->set_value('client_id');
+				$data['self_details'] = $this->clients->get_client_by_id($client_id);
 
 				$html = $this->load->view('mpdf_general_intake', $data, true); // render the view into HTML
 		     
